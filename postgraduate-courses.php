@@ -5,7 +5,7 @@
 <!-- Mirrored from themes.hody.co/html/dylan/shop-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Feb 2021 11:07:15 GMT -->
 
 <head>
-  <title>Ics - ICS KHED | PostGraduate Courses</title>
+  <title>Ics - ICS KHED | Postgraduate Courses</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,7 +76,7 @@
 
   <!-- End Navigation Bar-->
 
-  <section>
+  <section style="display:none;">
     <div class="flexslider" id="home-slider">
       <ul class="slides">
         <li>
@@ -188,7 +188,7 @@
     </div>
   </section>
 
-  <section>
+  <section style="padding-bottom:20px;">
     <div class="container">
       <div class="single-product-details">
         <div class="row">
@@ -212,20 +212,20 @@
           </div>
           <div class="col-md-5 col-md-offset-1">
             <div class="title m-0">
-              <h2 class="product_title entry-title">PostGraduate Course</h2>
+              <h2 class="product_title entry-title">Postgraduate Course</h2>
             </div>
             <div class="single-product-price">
               <!-- <div class="single-product-price-details">
                 <h3><del>$34.99</del><ins>$29.00</ins></h3>
               </div> -->
-              <div class="single-product-ratings"><span class="rating-stars">
+              <!-- <div class="single-product-ratings"><span class="rating-stars">
                   <i class="hc-star full">
                   </i><i class="hc-star full">
                   </i><i class="hc-star full">
                   </i><i class="hc-star full">
                   </i><i class="hc-star-empty">
                   </i></span>
-              </div>
+              </div> -->
             </div>
             <div class="single-product-desc">
               <h5>Description</h5>
@@ -233,7 +233,7 @@
                 quia blanditiis ea aliquam error ipsum excepturi aperiam vitae necessitatibus recusandae, rerum modi ab
                 mollitia iure?</p>
             </div>
-            <div class="single-product-list">
+            <!-- <div class="single-product-list">
               <div class="product_meta">
                 <h5>Informations:</h5>
                 <p><span>Categories:</span><a href="#">Hoodies</a>,<a href="#">Women</a>
@@ -241,7 +241,7 @@
                 <p><span>Tags:</span><a href="#">Casual</a>,<a href="#">Hoodie</a>
                 </p>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="clearfix"></div>
@@ -291,7 +291,7 @@
     </div>
   </section>
 
-  <section style="padding-top:0px;">
+  <section style="padding-top:0px;padding-bottom:50px;">
     <div class="container">
       <div class="title center">
         <h2> Faculty </h2>
@@ -300,7 +300,7 @@
         <tr>
           <th>Name</th>
           <th>Department</th>
-          <th>Subject</th>
+          <th>Designation</th>
         </tr>
         <tr>
           <td>Alfreds Futterkiste</td>
@@ -336,16 +336,16 @@
     </div>
   </section>
 
-  <section style="padding-top:0px;">
+  <section style="padding-top:0px;padding-bottom:50px;">
     <div class="container">
       <div class="title center">
-        <h2> Laboratoy </h2>
+        <h2> Laboratory </h2>
       </div>
       <table>
         <tr>
-          <th>Name</th>
-          <th>Department</th>
-          <th>Subject</th>
+          <th>Name of Lab</th>
+          <th>Lab Incharge</th>
+          <th>Contact Number</th>
         </tr>
         <tr>
           <td>Alfreds Futterkiste</td>
@@ -381,10 +381,10 @@
     </div>
   </section>
 
-  <section style="padding-top:20px;">
+  <section style="padding-top:20px;padding-bottom:50px;">
     <div class="container">
       <div class="title center">
-        <h2> Student Co-Cirricular Activities </h2>
+        <h2> Student Co-Curricular Activities </h2>
       </div>
       <div class="wide three-col" id="works-grid" style="position: relative; height: 526.376px;">
         <div class="work-item branding" style="position: absolute; left: 0px; top: 0px;">

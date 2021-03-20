@@ -34,7 +34,7 @@
     <div class="container" style="width:90%">
         <div class="row">
             <div class="col-md-2 col-sm-3 col-xs-3">
-                <img src="img/college-logo.jpg" width="70%" />
+                <img src="img/college-logo.jpg" class="logo-img" width="70%" />
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-8 col-sm-9 col-xs-9 has-megamenu">
@@ -105,7 +105,7 @@
                                     <span>Under Graduate Courses</span>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="undergraduate-courses.php">UnderGrdaute Course</a>
+                                            <a href="undergraduate-courses.php">UnderGraduate Course</a>
                                         </li>
                                         <li>
                                             <a href="">Creative Agency</a>
@@ -125,7 +125,7 @@
                                     <span>Post Graduate Courses</span>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="">PostGrdaute Course</a>
+                                            <a href="postgraduate-courses.php">PostGraduate Course</a>
                                         </li>
                                         <li>
                                             <a href="">Restaurant</a>

@@ -7292,3 +7292,21 @@ form.register {
     font-size: 10px !important;  
   }
 }
+
+@media (max-width: 1431px) {
+  .logo-img {
+    margin-left:15%;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo-img {
+    margin-left:45%;
+  }
+}
+
+@media (max-width: 900px) {
+  .logo-img {
+    margin-left:30%;
+  }
+}
