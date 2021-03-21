@@ -142,10 +142,10 @@
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <span>Home Layouts</span>
+                                    <span>Departments</span>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="">Startup</a>
+                                            <a href="department.php">Department</a>
                                         </li>
                                         <li>
                                             <a href="">App Landing</a>
