@@ -92,108 +92,466 @@
                             <a href="index.php">Home</a>
                         </li>
 
-                        <li class="">
-                            <a href="#">About Us</a>
-                        </li>
-                        <li class="">
-                            <a href="#">Governance & Administration</a>
-                        </li>
                         <li class="menu-item-has-children has-megamenu">
-                            <a href="#">Academics</a>
-                            <ul class="submenu megamenu">
+                            <a href="#">About Us</a>
+                            <ul class="submenu megamenu"  style="width:50%;">
                                 <li class="menu-item-has-children">
-                                    <span>Under Graduate Courses</span>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="undergraduate-courses.php">UnderGraduate Course</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Creative Agency</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Corporate</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Resume</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Online Shop</a>
-                                        </li>
-                                    </ul>
+                                    <center>
+                                        <img src= "https://www.ckthakurcollege.net/maindesign/images/bldg_images/nav_about.jpg"  width="90%"/>
+                                    </center>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <span>Post Graduate Courses</span>
+                                    <span>About Sanstha</span>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="postgraduate-courses.php">PostGraduate Course</a>
+                                            <a href="">About Sanstha</a>
                                         </li>
                                         <li>
-                                            <a href="">Restaurant</a>
+                                            <a href="">About Emblem</a>
                                         </li>
                                         <li>
-                                            <a href="">Photography</a>
+                                            <a href="">Vision</a>
                                         </li>
                                         <li>
-                                            <a href="">Construction</a>
+                                            <a href="">Goals & Objectives</a>
                                         </li>
                                         <li>
-                                            <a href="">Fitness / Gym</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <span>Departments</span>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="department.php">Department</a>
+                                            <a href="">Source of Inspiration</a>
                                         </li>
                                         <li>
-                                            <a href="">App Landing</a>
+                                            <a href="">Guiding Light</a>
                                         </li>
                                         <li>
-                                            <a href="">Lawyer</a>
+                                            <a href="">Divine Image</a>
                                         </li>
                                         <li>
-                                            <a href="">Barber Shop</a>
+                                            <a href="">Boards of Executives</a>
                                         </li>
                                         <li>
-                                            <a href="">Music</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <span>Home Layouts</span>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="">Product Landing</a>
+                                            <a href="">Institution</a>
                                         </li>
                                         <li>
-                                            <a href="">Travel</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Event</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Wedding</a>
-                                        </li>
-                                        <li>
-                                            <a href="">SPA</a>
+                                            <a href="">Facilities</a>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-                        <li class="">
+                        
+                        <li class="menu-item-has-children has-megamenu">
+                            <a href="#">Governance & Administration</a>
+                            <ul class="submenu megamenu">
+                                <li class="menu-item-has-children">
+                                    <span>Governing Body</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Functioning</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Composition</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Minutes of Meeting</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Action taken Report</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Board of Studies</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Functioning</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Composition</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Minutes of Meeting</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Action taken Report</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Finance Committee</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Functioning</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Composition</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Minutes of Meeting</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Action taken Report</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>College Devlopment Committee</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Functioning</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Composition</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Minutes of Meeting</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Action taken Report</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Academic Council</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Functioning</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Composition</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Minutes of Meeting</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Action taken Report</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children has-megamenu">
+                            <a href="#">Academics</a>
+                            <ul class="submenu megamenu">
+                                <li class="menu-item-has-children">
+                                    <!-- <span>Academic</span> -->
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Academic Program</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Academic Calender</span>
+                                    <center>
+                                        <img src= "img/calendar.png"  width="90%"/>
+                                    </center>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Departments</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Arts</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Commerce</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Science</a>
+                                        </li>
+                                        <li>
+                                            <a href="">IT</a>
+                                        </li>
+                                        <li>
+                                            <a href="">CS</a>
+                                        </li>
+                                        <li>
+                                            <a href="">BMS</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Programme Outcome</span>
+                                    <!-- <a href= ""> <img src="img/calendar.png"></a> -->
+                                    <center>
+                                        <img src= "img/calendar.png"  width="90%"/>
+                                    </center>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children has-megamenu">
                             <a href="#">IQAC</a>
+                            <ul class="submenu megamenu">
+                                <li class="menu-item-has-children">
+                                    <!-- <span>Departments</span> -->
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">About the IQAC</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Objectives of IQAC</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Composition of IQAC</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Message by IQAC Co-ordinator</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Best Practices</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Perspective Plan</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Student Satisfaction Survey</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Institutional Distinctiveness</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Activity Form</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">IQAC Calender</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Procedures and Policies</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>AQAR</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">2019 - 2020</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">2018 - 2019</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">2017 - 2018</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>MOM</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">2019 - 2020</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">2018 - 2019</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">2017 - 2018</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>NAAC</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">NAAC Grading</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">SSR 1st Cycle</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">SSR 2nd Cycle</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">SSR 3rd Cycle</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Downloads</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">CAS/API/PBAS Format</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Manual</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Performa</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="has-megamenu">
+                        <li class="menu-item-has-children has-megamenu">
                             <a href="#">Examination</a>
+                            <ul class="submenu megamenu" style="width:100%;">
+                                <li class="menu-item-has-children">
+                                    <!-- <span>Departments</span> -->
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Examination cell</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Rules & Regulation</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Scheme of Evaluation</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Examination Schedule</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Examination Calender</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Examination Form</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Hall Ticket</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Result</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Examination Grievance Redressal</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Rules And Regulations</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">ATKT</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Attendance</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Internal Examinations</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Project work/ Assignment/ Overall Performance</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Duplicate Hall Ticket/ Marksheet</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Examination Fee Structure</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Unfair Means/ Malpractices</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Verification/ Revaluation</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                            </ul>
                         </li>
-                        <li class="has-megamenu">
+                        <li class="menu-item-has-children has-megamenu">
                             <a href="#">Admission</a>
+                            <ul class="submenu megamenu" style="width:100%;">
+                                <li class="menu-item-has-children">
+                                    <!-- <span>Departments</span> -->
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Online Admission</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">College Prospectus</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Fee Structure</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Admission Proccess</a>
+                                        </li>
+                                        <li>
+                                            <a href="" >Scholarship</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Admission Cancellation Guidelines</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://mu.ac.in/readmore">University Circular Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Merit List</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Code Of Conduct</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Teaching Staff</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Non-Teaching Staff</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Student</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Anti-Ragging Cell</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Composition</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Squad</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Helpline</a>
+                                        </li>
+                                        <li>
+                                            <a href=""> Rules & Regulation</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="has-megamenu">
+                        <li class="menu-item-has-children has-megamenu">
                             <a href="#">Student Corner</a>
+                            <ul class="submenu megamenu" style="width:100%;">
+                                <li class="menu-item-has-children">
+                                    <!-- <span>Departments</span> -->
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Feedback Form</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Student Welfare Scheme</a>
+                                        </li>
+                                        <li>
+                                            <a href="" >Student Council & Welfare</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Women Development Cell</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank" >UGC Rules & Regulation</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Facilities a& Services at a Glance</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Duplicate ID Card / Library Card Form</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Student Grievance Redressal</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Important Links</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="">Library</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
                         <!-- <li class="has-megamenu">
                     <a href="#">Skill Development Courses</a>
