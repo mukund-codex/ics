@@ -320,6 +320,7 @@
             </div>
           </div>
         </div>
+
         <br style="padding-top:50px;">
         <center>
           <h4 style="font-weight:700"> Postgraduate Courses </h4>
@@ -369,98 +370,43 @@
           </div>
         </div>
 
+        <br style="padding-top:50px;">
+        <center>
+          <h4 style="font-weight:700;"> Other Courses </h4>
+        </center>
+        <div class="wide two-col" id="works-grid">
+          <div class="work-item branding">
+            <div class="work-detail">
+              <a href="#">
+                <img src="images/portfolio-2.jpg" alt="MSC IT">
+                <div class="work-info">
+                  <div class="centrize">
+                    <div class="v-center">
+                      <h3>Skill Development Courses</h3>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="work-item branding">
+            <div class="work-detail">
+              <a href="#">
+                <img src="images/portfolio-1.jpg" alt="MBA">
+                <div class="work-info">
+                  <div class="centrize">
+                    <div class="v-center">
+                      <h3>Co-Curricular Activities</h3>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
-
-  <!-- Courses new section Ends -->
-
-  <!--Courses Section -->
-  <!-- <section style="background-color:#E8E7E5;padding-bottom:25px;">
-    <div class="container">
-      <div class="section-content">
-        <div class="title center">
-          <h2> Courses Offered By Us </h2>
-        </div>
-        <center>
-          <h4 style="font-weight:700"> Undergraduate Courses </h4>
-        </center>
-        <br>
-        <div class="row">
-          <div class="col-sm-4 mb-25 mt-25">
-          <center> <img src="img/arts-img3.jpg" /> </center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> Arts </h5>
-            </center>
-            <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-            <center><img src="img/science-img3.jpg" width="88%" /></center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> Science </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-            <center><img src="img/commerce-img2.jpg" width="66%" /></center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> Commerce </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-          <center><img src="img/it-img3.jpg" width=100%" /></center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> IT </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-          <center><img src="img/cs-img1.jpg" width=100%" /></center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> CS </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-          <center><img src="img/bms-img2.jpg" width=100%" /></center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> BMS </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-        </div>
-
-        <br>
-
-        <center>
-          <h4 style="font-weight:700"> Postgraduate Courses </h4>
-        </center>
-        <div class="row">
-          <div class="col-sm-4 mb-25 mt-25">
-            <img src="images/portfolio-6.jpg" />
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> MSC IT </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-            <img src="images/portfolio-6.jpg" />
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> MBA </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-            <img src="images/portfolio-6.jpg" />
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> MCA </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
   <!-- Infrastructure -->
 
@@ -522,183 +468,6 @@
         </div>
       </div>
     </section>
-
-  <!-- <section class="grey-bg">
-    <div class="container">
-      <div class="title center">
-        <h2> Infrastructure </h2>
-      </div>
-      <div class="row">
-        <div class="owl-carousel"
-          data-options="{&quot;items&quot;: 3, &quot;margin&quot;: 50, &quot;autoplay&quot;: true, &quot;dots&quot;: true}">
-          <div class="card-post">
-            <div class="post-media">
-              <a href="#">
-                <img src="images/blog-4.jpg" alt="Minimum Viable DevOps">
-              </a>
-            </div>
-            <div class="post-body">
-              <h3><a href="#">Canteen</a></h3>
-              <p class="serif">Inspired Design. Nesciunt commodi fuga rem doloremque. Curabitur congue, dolor asperiores
-                egestas varius, felis mi</p>
-              <div class="post-info upper"><a class="small-link black-text" href="#"><span>Read More</span><i
-                    class="hc-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card-post">
-            <div class="post-media">
-              <a href="#">
-                <img src="images/blog-1.jpg" alt="How to Get What You Want">
-              </a>
-            </div>
-            <div class="post-body">
-              <h3><a href="#">Library</a></h3>
-              <p class="serif">Inspired Design. Nesciunt commodi fuga rem doloremque. Curabitur congue, dolor asperiores
-                egestas varius, felis mi</p>
-              <div class="post-info upper"><a class="small-link black-text" href="#"><span>Read More</span><i
-                    class="hc-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card-post">
-            <div class="post-media">
-              <a href="#">
-                <img src="images/blog-5.jpg" alt="Answering Everything">
-              </a>
-            </div>
-            <div class="post-body">
-              <h3><a href="#">Sports</a></h3>
-              <p class="serif">Inspired Design. Nesciunt commodi fuga rem doloremque. Curabitur congue, dolor asperiores
-                egestas varius, felis mi</p>
-              <div class="post-info upper"><a class="small-link black-text" href="#"><span>Read More</span><i
-                    class="hc-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card-post">
-            <div class="post-media">
-              <a href="#">
-                <img src="images/blog-2.jpg" alt="Startup Rules">
-              </a>
-            </div>
-            <div class="post-body">
-              <h3><a href="#">Hostel</a></h3>
-              <p class="serif">Inspired Design. Nesciunt commodi fuga rem doloremque. Curabitur congue, dolor asperiores
-                egestas varius, felis mi</p>
-              <div class="post-info upper"><a class="small-link black-text" href="#"><span>Read More</span><i
-                    class="hc-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card-post">
-            <div class="post-media">
-              <a href="#">
-                <img src="images/blog-3.jpg" alt="Email Can Wait">
-              </a>
-            </div>
-            <div class="post-body">
-              <h3><a href="#">Laboratories</a></h3>
-              <p class="serif">Inspired Design. Nesciunt commodi fuga rem doloremque. Curabitur congue, dolor asperiores
-                egestas varius, felis mi</p>
-              <div class="post-info upper"><a class="small-link black-text" href="#"><span>Read More</span><i
-                    class="hc-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- <section class="grey-bg">
-    <div class="container">
-      <div class="title center">
-        <h2>Latest Posts.</h2>
-        <h4>Checkout our latest blogs and news.</h4>
-      </div>
-      <div class="row">
-        <div class="owl-carousel"
-          data-options="{&quot;items&quot;: 3, &quot;margin&quot;: 50, &quot;autoplay&quot;: true, &quot;dots&quot;: true}">
-          <div class="card-post">
-            <div class="post-media">
-              <a href="#">
-                <img src="images/blog-4.jpg" alt="Minimum Viable DevOps">
-              </a>
-            </div>
-            <div class="post-body"><span class="post-time">August 12, 2016</span>
-              <h3><a href="#">Minimum Viable DevOps</a></h3>
-              <p class="serif">Inspired Design. Nesciunt commodi fuga rem doloremque. Curabitur congue, dolor asperiores
-                egestas varius, felis mi [..]</p>
-              <div class="post-info upper"><a class="small-link black-text" href="#"><span>Read More</span><i
-                    class="hc-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card-post">
-            <div class="post-media">
-              <a href="#">
-                <img src="images/blog-1.jpg" alt="How to Get What You Want">
-              </a>
-            </div>
-            <div class="post-body"><span class="post-time">August 12, 2016</span>
-              <h3><a href="#">How to Get What You Want</a></h3>
-              <p class="serif">Inspired Design. Nesciunt commodi fuga rem doloremque. Curabitur congue, dolor asperiores
-                egestas varius, felis mi [..]</p>
-              <div class="post-info upper"><a class="small-link black-text" href="#"><span>Read More</span><i
-                    class="hc-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card-post">
-            <div class="post-media">
-              <a href="#">
-                <img src="images/blog-5.jpg" alt="Answering Everything">
-              </a>
-            </div>
-            <div class="post-body"><span class="post-time">August 12, 2016</span>
-              <h3><a href="#">Answering Everything</a></h3>
-              <p class="serif">Inspired Design. Nesciunt commodi fuga rem doloremque. Curabitur congue, dolor asperiores
-                egestas varius, felis mi [..]</p>
-              <div class="post-info upper"><a class="small-link black-text" href="#"><span>Read More</span><i
-                    class="hc-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card-post">
-            <div class="post-media">
-              <a href="#">
-                <img src="images/blog-2.jpg" alt="Startup Rules">
-              </a>
-            </div>
-            <div class="post-body"><span class="post-time">August 12, 2016</span>
-              <h3><a href="#">Startup Rules</a></h3>
-              <p class="serif">Inspired Design. Nesciunt commodi fuga rem doloremque. Curabitur congue, dolor asperiores
-                egestas varius, felis mi [..]</p>
-              <div class="post-info upper"><a class="small-link black-text" href="#"><span>Read More</span><i
-                    class="hc-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card-post">
-            <div class="post-media">
-              <a href="#">
-                <img src="images/blog-3.jpg" alt="Email Can Wait">
-              </a>
-            </div>
-            <div class="post-body"><span class="post-time">August 11, 2016</span>
-              <h3><a href="#">Email Can Wait</a></h3>
-              <p class="serif">Inspired Design. Nesciunt commodi fuga rem doloremque. Curabitur congue, dolor asperiores
-                egestas varius, felis mi [..]</p>
-              <div class="post-info upper"><a class="small-link black-text" href="#"><span>Read More</span><i
-                    class="hc-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
   <?php include('common/footer.php') ?>
 

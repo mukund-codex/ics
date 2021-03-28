@@ -191,7 +191,7 @@
 
     <section style="padding-top:50px;padding-bottom:20px;">
         <div class="title center" style="padding-bottom:50px;">
-            <h2> Department </h2>
+            <h2> Department of Information Technology </h2>
         </div>
         <br>
         <div class="container">
@@ -216,9 +216,9 @@
                         </div>
                     </div>
                     <div class="col-md-5 col-md-offset-1">
-                        <div class="title m-0">
-                            <h2 class="product_title entry-title">IT</h2>
-                        </div>
+                        <!--<div class="title m-0">-->
+                        <!--    <h2 class="product_title entry-title">IT</h2>-->
+                        <!--</div>-->
                         <div class="single-product-price">
                             <!-- <div class="single-product-price-details">
                 <h3><del>$34.99</del><ins>$29.00</ins></h3>
@@ -286,9 +286,12 @@
                                     aria-expanded="true"><span>Departmental Activities</span></a>
                             </li>
                             <li class=""><a href="#boxed-tab-8" data-toggle="tab"
-                                    aria-expanded="true"><span>Research Paper</span></a>
+                                    aria-expanded="true"><span>Research Activities</span></a>
                             </li>
                             <li class=""><a href="#boxed-tab-9" data-toggle="tab"
+                                    aria-expanded="true"><span>Notices</span></a>
+                            </li>
+                            <li class=""><a href="#boxed-tab-10" data-toggle="tab"
                                     aria-expanded="true"><span>Photo Gallery</span></a>
                             </li>
                         </ul>
@@ -398,6 +401,14 @@
                                 <embed src="sample.pdf" width="1140px" height="2100px" />
                             </div>
                             <div class="tab-pane fade" id="boxed-tab-9">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt illum nemo tempore
+                                    praesentium incidunt
+                                    quia blanditiis ea aliquam error ipsum excepturi aperiam vitae necessitatibus
+                                    recusandae, rerum modi ab
+                                    mollitia iure?</p>
+                                <embed src="sample.pdf" width="1140px" height="2100px" />
+                            </div>
+                            <div class="tab-pane fade" id="boxed-tab-10">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <img src="images/portfolio-6.jpg">
