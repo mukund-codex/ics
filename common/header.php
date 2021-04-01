@@ -550,7 +550,7 @@
                             <a href="#">Alumni</a>
                         </li>
                         <li class="menu-item-has-children has-megamenu">
-                            <a href="#">Contact</a>
+                            <a href="contact-us.php">Contact</a>
                             <ul class="submenu megamenu">
                                 <li class="menu-item-has-children">
                                     <span>Principal</span>
