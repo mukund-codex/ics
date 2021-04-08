@@ -52,8 +52,7 @@
             </div>
             <div class="col-md-9 col-sm-6 col-xs-6 has-megamenu">
                 <h3>
-                    <marquee style="color:#fff; font-size:15px;font-weight:300"> Ajkdnajskdnjkadnakjdnskjdnask
-                        najdadsajkdasjdas dkjadkjadasdaskdaskd</marquee>
+                    <marquee style="color:#fff; font-size:15px;font-weight:300"> <a href="#" target="_blank">News Updates</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank">Result Updates</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank">Admission Updates</a> </marquee>
                 </h3>
             </div>
         </div>
