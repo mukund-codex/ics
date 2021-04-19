@@ -163,6 +163,7 @@
         <div class="container">
             <div class="title center">
                 <h2> Courses Offered By Us </h2>
+
             </div>
             <center>
                 <h4 style="font-weight:700"> Undergraduate Courses </h4>
@@ -234,86 +235,43 @@
         <div class="title center">
           <h2> Courses Offered By Us </h2>
         </div>
+
         <center>
-          <h4 style="font-weight:700"> Undergraduate Courses </h4>
+          <h4 style="font-weight:700;"> Other Courses </h4>
         </center>
-        <br>
-        <div class="row">
-          <div class="col-sm-4 mb-25 mt-25">
-          <center> <img src="img/arts-img3.jpg" /> </center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> Arts </h5>
-            </center>
-            <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
+        <div class="wide two-col" id="works-grid">
+          <div class="work-item branding">
+            <div class="work-detail">
+              <a href="#">
+                <img src="images/portfolio-2.jpg" alt="MSC IT">
+                <div class="work-info">
+                  <div class="centrize">
+                    <div class="v-center">
+                      <h3>Skill Development Courses</h3>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
-          <div class="col-sm-4 mb-25 mt-25">
-            <center><img src="img/science-img3.jpg" width="88%" /></center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> Science </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-            <center><img src="img/commerce-img2.jpg" width="66%" /></center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> Commerce </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-          <center><img src="img/it-img3.jpg" width=100%" /></center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> IT </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-          <center><img src="img/cs-img1.jpg" width=100%" /></center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> CS </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-          <center><img src="img/bms-img2.jpg" width=100%" /></center>
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> BMS </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
+          <div class="work-item branding">
+            <div class="work-detail">
+              <a href="#">
+                <img src="images/portfolio-1.jpg" alt="MBA">
+                <div class="work-info">
+                  <div class="centrize">
+                    <div class="v-center">
+                      <h3>Co-Curricular Activities</h3>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
 
-        <br>
-
-        <center>
-          <h4 style="font-weight:700"> Postgraduate Courses </h4>
-        </center>
-        <div class="row">
-          <div class="col-sm-4 mb-25 mt-25">
-            <img src="images/portfolio-6.jpg" />
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> MSC IT </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-            <img src="images/portfolio-6.jpg" />
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> MBA </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-          <div class="col-sm-4 mb-25 mt-25">
-            <img src="images/portfolio-6.jpg" />
-            <center>
-              <h5 style="font-weight:600;font-size:22px;"> MCA </h5>
-            </center>
-           <center> <a href="" > <h5 style="font-weight:700"> View Details </h5> </a> </center>
-          </div>
-        </div>
       </div>
-    </div>
-  </section> -->
+    </section>
 
     <!-- Infrastructure -->
 
@@ -528,6 +486,7 @@
   </section> -->
 
     <?php include('common/footer.php') ?>
+
 
     <div id="search-modal">
         <div class="centrize">

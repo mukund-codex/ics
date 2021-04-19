@@ -204,7 +204,7 @@
 
     <section style="padding-top:50px;padding-bottom:20px;">
         <div class="title center" style="padding-bottom:50px;">
-            <h2> Department </h2>
+            <h2> Department of Information Technology </h2>
         </div>
         <br>
         <div class="container">
@@ -236,9 +236,11 @@
                         </div>
                     </div>
                     <div class="col-md-5 col-md-offset-1">
+
                         <div class="title m-0">
                             <h2 class="product_title entry-title"><?php echo $_GET['courses'];?></h2>
                         </div>
+
                         <div class="single-product-price">
 
                         </div>
@@ -269,13 +271,14 @@
                     </div>
                     <div class="dylan-tabs mt-50">
                         <ul class="nav nav-tabs boxed-tabs center-tabs cols-12">
-                            <?php 
+                        <?php 
                          while($row = $func->fetch($data))
                          { 
                         ?>
                             <li class='<?php echo ($row['id'] == "1") ? "active" : " ";?>'><a
                                     href="#boxed-tab-<?php echo $row['id'];?>" data-toggle="tab"
                                     aria-expanded="false"><span><?php echo $row['tabs'];?></span></a>
+
                             </li>
                             <?php
                          }
@@ -297,6 +300,7 @@
                             </div>
                             
                             <?php } ?>
+
                         </div>
                     </div>
                 </div>

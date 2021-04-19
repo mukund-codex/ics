@@ -240,7 +240,11 @@
                                             <a href="sample.pdf" target="_blank">Academic Calender</a>
                                         </li>
                                         <li>
+<<<<<<< HEAD
                                             <a href="sample.pdf" target="_blank">Program Outcome</a>
+=======
+                                            <a href="sample.pdf" target="_blank">Academic Program</a>
+>>>>>>> 4a68a0e2fca3a837e59728cb665608131a920556
                                         </li>
                                     </ul>
                                 </li>
@@ -547,10 +551,83 @@
                         </li>
                         <li class="has-megamenu">
                             <a href="#">Alumni</a>
+<<<<<<< HEAD
                         </li>
                         <li class="has-megamenu">
                             <a href="contact-us.php">Contact</a>
                         </li>
+=======
+                        </li>
+                        <li class="menu-item-has-children has-megamenu">
+                            <a href="contact-us.php">Contact</a>
+                            <ul class="submenu megamenu">
+                                <li class="menu-item-has-children">
+                                    <span>Principal</span>
+                                    <center><hr style="width:90%;margin-top:10px;margin-bottom:10px;"></center>
+                                    <span style="font-weight:bolder;">Prof. Name</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="tel:022 22671871">Tel: 022 22671871</a>
+                                        </li>
+                                        <li>
+                                            <a href="tel:022 22671871">Fax: 022 22671871</a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:mukundvishwakarma042@gmail.com">Mail: mukundvishwakarma042@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Administrative Office</span>
+                                    <center><hr style="width:90%;margin-top:10px;margin-bottom:10px;"></center>
+                                    <span style="font-weight:bolder;">Prof. Name</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="tel:022 22671871">Tel: 022 22671871</a>
+                                        </li>
+                                        <li>
+                                            <a href="tel:022 22671871">Fax: 022 22671871</a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:mukundvishwakarma042@gmail.com">Mail: mukundvishwakarma042@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Head Of Departments</span>
+                                    <center><hr style="width:90%;margin-top:10px;margin-bottom:10px;"></center>
+                                    <span style="font-weight:bolder;">Prof. Name</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="tel:022 22671871">Tel: 022 22671871</a>
+                                        </li>
+                                        <li>
+                                            <a href="tel:022 22671871">Fax: 022 22671871</a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:mukundvishwakarma042@gmail.com">Mail: mukundvishwakarma042@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <span>Controller Of Examination</span>
+                                    <center><hr style="width:90%;margin-top:10px;margin-bottom:10px;"></center>
+                                    <span style="font-weight:bolder;">Prof. Name</span>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="tel:022 22671871">Tel: 022 22671871</a>
+                                        </li>
+                                        <li>
+                                            <a href="tel:022 22671871">Fax: 022 22671871</a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:mukundvishwakarma042@gmail.com">Mail: mukundvishwakarma042@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+>>>>>>> 4a68a0e2fca3a837e59728cb665608131a920556
                         <li class="has-megamenu">
                             <a href="#">Photo Gallery</a>
                         </li>
