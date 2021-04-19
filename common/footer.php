@@ -36,7 +36,7 @@
             </div>
             <div class="col-sm-4 col-sm-6 col-xs-6">
               <div class="widget clearfix">
-                <h5>Admissions</h5>
+                <h5>Our Institute</h5>
                 <ul>
                   <li><a href="#">Course Offered</a>
                   </li>
@@ -57,11 +57,11 @@
                   </li>
                   <li><a href="#">Commerce</a>
                   </li>
-                  <li><a href="#">IT</a>
+                  <li><a href="#">Information Technology</a>
                   </li>
-                  <li><a href="#">CS</a>
+                  <li><a href="#">Computer Science</a>
                   </li>
-                  <li><a href="#">BMS</a>
+                  <li><a href="#">Bachelor of Management Studies</a>
                   </li>
                 </ul>
               </div>

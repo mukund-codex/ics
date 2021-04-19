@@ -20,7 +20,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2 col-sm-6 col-xs-12" style="height:60px;">
-                    <div class="btn-container text-left mb-15" style="padding-top: 4px;"><a class="btn btn-dark" href="#">Admin Login<span class="btn-icon btn-icon-animated" style="font-size: large;" ><i class="hc-user"></i></span></a>
+                    <div class="btn-container text-left mb-15" style="padding-top: 4px;"><a class="btn btn-dark" href="../ics/dashboard/admin-login.php">Admin Login<span class="btn-icon btn-icon-animated" style="font-size: large;" ><i class="hc-user"></i></span></a>
           </div>
                     <!-- <a href="#"> <h3 style="font-size:15px; color:#fff;"> <strong style="padding: 10px;padding-bottom: 15px;background-color: #E43129;"> Admin Login  </strong>  </h3></a>  -->
                     </div>
@@ -52,8 +52,7 @@
             </div>
             <div class="col-md-9 col-sm-6 col-xs-6 has-megamenu">
                 <h3>
-                    <marquee style="color:#fff; font-size:15px;font-weight:300"> Ajkdnajskdnjkadnakjdnskjdnask
-                        najdadsajkdasjdas dkjadkjadasdaskdaskd</marquee>
+                    <marquee style="color:#fff; font-size:15px;font-weight:300"> <a href="#" target="_blank">News Updates</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank">Result Updates</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank">Admission Updates</a> </marquee>
                 </h3>
             </div>
         </div>
@@ -103,9 +102,9 @@
                                 <li class="menu-item-has-children">
                                     <span>About Sanstha</span>
                                     <ul class="sub-menu">
-                                        <li>
+                                        <!-- <li>
                                             <a href="">About Sanstha</a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="">About Emblem</a>
                                         </li>
@@ -237,13 +236,13 @@
                                         <li>
                                             <a href="sample.pdf" target="_blank">Academic Program</a>
                                         </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Academic Calender</a>
+                                        </li>
+                                        <li>
+                                            <a href="sample.pdf" target="_blank">Program Outcome</a>
+                                        </li>
                                     </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <span>Academic Calender</span>
-                                    <center>
-                                        <img src= "img/calendar.png"  width="90%"/>
-                                    </center>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>Departments</span>
@@ -258,22 +257,15 @@
                                             <a href="">Science</a>
                                         </li>
                                         <li>
-                                            <a href="">IT</a>
+                                            <a href="">Information Technology</a>
                                         </li>
                                         <li>
-                                            <a href="">CS</a>
+                                            <a href="">Computer Science</a>
                                         </li>
                                         <li>
-                                            <a href="">BMS</a>
+                                            <a href="">Bachelor of Management Studies</a>
                                         </li>
                                     </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <span>Programme Outcome</span>
-                                    <!-- <a href= ""> <img src="img/calendar.png"></a> -->
-                                    <center>
-                                        <img src= "img/calendar.png"  width="90%"/>
-                                    </center>
                                 </li>
                             </ul>
                         </li>
@@ -553,18 +545,12 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- <li class="has-megamenu">
-                    <a href="#">Skill Development Courses</a>
-                </li> -->
                         <li class="has-megamenu">
-                            <a href="#">NIRF</a>
+                            <a href="#">Alumni</a>
                         </li>
                         <li class="has-megamenu">
-                            <a href="#">Contact</a>
-                            <!-- </li>
-                <li class="has-megamenu">
-                    <a href="#">Quick Links</a>
-                </li> -->
+                            <a href="contact-us.php">Contact</a>
+                        </li>
                         <li class="has-megamenu">
                             <a href="#">Photo Gallery</a>
                         </li>

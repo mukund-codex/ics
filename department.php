@@ -1,3 +1,16 @@
+<?php
+    include('site-config.php');
+    $data = $data1 = $func->getAllBoxesTabs(); 
+
+    $sqlForDes = "SELECT   MAX(id),dept_discp FROM `dc_departments_images` where category= '".$_GET['courses']."' ";
+    $resultOnlyForDescp = $func->query($sqlForDes);
+
+    $sqlForDes = "SELECT  * FROM `dc_departments_images` where category= '".$_GET['courses']."' ";
+    
+    $resultOnlyForImages = $func->query($sqlForDes);
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,39 +35,39 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '../../../www.google-analytics.com/analytics.js', 'ga');
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '../../../www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-46276885-17', 'auto');
-        ga('send', 'pageview');
+    ga('create', 'UA-46276885-17', 'auto');
+    ga('send', 'pageview');
     </script>
 
     <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
     </style>
 </head>
 
@@ -200,55 +213,47 @@
                     <div class="col-md-6">
                         <div class="flexslider nav-inside" id="product-slider">
                             <ul class="slides">
-                                <li data-thumb="img/course1.png">
-                                    <img src="img/course1.png" alt="">
+
+                                <?php  
+                                
+                                while($row = $func->fetch($resultOnlyForImages)){
+                                    $file_name = str_replace('', '-', strtolower( pathinfo($row['image'], PATHINFO_FILENAME)));
+                                    $ext = pathinfo($row['image'], PATHINFO_EXTENSION);  
+                                
+                                ?>
+
+                                <li data-thumb="img/Department/Arts/<?php echo $file_name.'_crop.'.$ext ?>">
+                                    <img src="img/Department/Arts/<?php echo $file_name.'_crop.'.$ext ?>" alt="">
+                                    <img src="img/Department/Arts/<?php echo $file_name.'_crop.'.$ext ?>"
+                                alt="No Images available">
                                 </li>
-                                <li data-thumb="img/course2.jpg">
-                                    <img src="img/course2.jpg" alt="">
-                                </li>
-                                <li data-thumb="img/course1.png">
-                                    <img src="img/course1.png" alt="">
-                                </li>
-                                <li data-thumb="img/course2.jpg">
-                                    <img src="img/course2.jpg" alt="">
-                                </li>
+
+                                <?php
+                                }
+                                ?>
+                               
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-5 col-md-offset-1">
                         <div class="title m-0">
-                            <h2 class="product_title entry-title">IT</h2>
+                            <h2 class="product_title entry-title"><?php echo $_GET['courses'];?></h2>
                         </div>
                         <div class="single-product-price">
-                            <!-- <div class="single-product-price-details">
-                <h3><del>$34.99</del><ins>$29.00</ins></h3>
-              </div> -->
-                            <!-- <div class="single-product-ratings"><span class="rating-stars">
-                  <i class="hc-star full">
-                  </i><i class="hc-star full">
-                  </i><i class="hc-star full">
-                  </i><i class="hc-star full">
-                  </i><i class="hc-star-empty">
-                  </i></span>
-              </div> -->
+
                         </div>
                         <div class="single-product-desc">
                             <h5>Description</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt illum nemo tempore
-                                praesentium incidunt
-                                quia blanditiis ea aliquam error ipsum excepturi aperiam vitae necessitatibus
-                                recusandae, rerum modi ab
-                                mollitia iure?</p>
+
+                            <?php
+                                  while($row = $func->fetch($resultOnlyForDescp)){
+                            ?>
+                            <p><?php echo $row['dept_discp'];?></p>
+                            <?php
+                                }
+                             ?>
                         </div>
-                        <!-- <div class="single-product-list">
-              <div class="product_meta">
-                <h5>Informations:</h5>
-                <p><span>Categories:</span><a href="#">Hoodies</a>,<a href="#">Women</a>
-                </p>
-                <p><span>Tags:</span><a href="#">Casual</a>,<a href="#">Hoodie</a>
-                </p>
-              </div>
-            </div> -->
+
                     </div>
                 </div>
             </div>
@@ -264,166 +269,38 @@
                     </div>
                     <div class="dylan-tabs mt-50">
                         <ul class="nav nav-tabs boxed-tabs center-tabs cols-12">
-                            <li class="active"><a href="#boxed-tab-1" data-toggle="tab"
-                                    aria-expanded="false"><span>Department</span></a>
+                            <?php 
+                         while($row = $func->fetch($data))
+                         { 
+                        ?>
+                            <li class='<?php echo ($row['id'] == "1") ? "active" : " ";?>'><a
+                                    href="#boxed-tab-<?php echo $row['id'];?>" data-toggle="tab"
+                                    aria-expanded="false"><span><?php echo $row['tabs'];?></span></a>
                             </li>
-                            <li class=""><a href="#boxed-tab-2" data-toggle="tab"
-                                    aria-expanded="false"><span>Infrastructure Facilities</span></a>
-                            </li>
-                            <li class=""><a href="#boxed-tab-3" data-toggle="tab"
-                                    aria-expanded="false"><span>Faculty</span></a>
-                            </li>
-                            <li class=""><a href="#boxed-tab-4" data-toggle="tab"
-                                    aria-expanded="false"><span>Syllabus</span></a>
-                            </li>
-                            <li class=""><a href="#boxed-tab-5" data-toggle="tab"
-                                    aria-expanded="false"><span>Time Table</span></a>
-                            </li>
-                            <li class=""><a href="#boxed-tab-6" data-toggle="tab"
-                                    aria-expanded="true"><span>Industrial Visits</span></a>
-                            </li>
-                            <li class=""><a href="#boxed-tab-7" data-toggle="tab"
-                                    aria-expanded="true"><span>Departmental Activities</span></a>
-                            </li>
-                            <li class=""><a href="#boxed-tab-8" data-toggle="tab"
-                                    aria-expanded="true"><span>Research Paper</span></a>
-                            </li>
-                            <li class=""><a href="#boxed-tab-9" data-toggle="tab"
-                                    aria-expanded="true"><span>Photo Gallery</span></a>
-                            </li>
+                            <?php
+                         }
+                           ?>
                         </ul>
                         <div class="tab-content text-center">
-                            <div class="tab-pane fade  active in" id="boxed-tab-1">
+                            <?php 
+                                while($row = $func->fetch($data1)) { //echo "Here";exit; print_r($row);exit;  
+                                    $id = $row['id']; 
+
+                                    echo $id;
+                            ?>
+                            <div class="tab-pane fade active in" id="boxed-tab-<?php echo $id; ?>">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt illum nemo tempore
                                 praesentium incidunt
                                 quia blanditiis ea aliquam error ipsum excepturi aperiam vitae necessitatibus
                                 recusandae, rerum modi ab
                                 mollitia iure?</p>
                             </div>
-                            <div class="tab-pane fade" id="boxed-tab-2">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-6.jpg">
-                                        <div class="title center">
-                                            <h4>Laboratory</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-1.jpg">
-                                        <div class="title center">
-                                            <h4>Library</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-4.jpg">
-                                        <div class="title center">
-                                            <h4>Class Room</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="boxed-tab-3">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt illum nemo tempore
-                                    praesentium incidunt
-                                    quia blanditiis ea aliquam error ipsum excepturi aperiam vitae necessitatibus
-                                    recusandae, rerum modi ab
-                                    mollitia iure?</p>
-                            </div>
-                            <div class="tab-pane fade" id="boxed-tab-4">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt illum nemo tempore
-                                    praesentium incidunt
-                                    quia blanditiis ea aliquam error ipsum excepturi aperiam vitae necessitatibus
-                                    recusandae, rerum modi ab
-                                    mollitia iure?</p>
-                                    <p>Open a PDF file <a href="sample.pdf">example</a>.</p>
-                            </div>
-                            <div class="tab-pane fade" id="boxed-tab-5">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt illum nemo tempore
-                                    praesentium incidunt
-                                    quia blanditiis ea aliquam error ipsum excepturi aperiam vitae necessitatibus
-                                    recusandae, rerum modi ab
-                                    mollitia iure?</p>
-                                <embed src="sample.pdf" width="1140px" height="2100px" />
-                            </div>
-                            <div class="tab-pane fade" id="boxed-tab-6">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-6.jpg">
-                                        <div class="title center">
-                                            <h4>Laboratory</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-1.jpg">
-                                        <div class="title center">
-                                            <h4>Library</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-4.jpg">
-                                        <div class="title center">
-                                            <h4>Class Room</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="boxed-tab-7">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-6.jpg">
-                                        <div class="title center">
-                                            <h4>Laboratory</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-1.jpg">
-                                        <div class="title center">
-                                            <h4>Library</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-4.jpg">
-                                        <div class="title center">
-                                            <h4>Class Room</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="boxed-tab-8">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt illum nemo tempore
-                                    praesentium incidunt
-                                    quia blanditiis ea aliquam error ipsum excepturi aperiam vitae necessitatibus
-                                    recusandae, rerum modi ab
-                                    mollitia iure?</p>
-                                <embed src="sample.pdf" width="1140px" height="2100px" />
-                            </div>
-                            <div class="tab-pane fade" id="boxed-tab-9">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-6.jpg">
-                                        <div class="title center">
-                                            <h4>Laboratory</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-1.jpg">
-                                        <div class="title center">
-                                            <h4>Library</h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="images/portfolio-4.jpg">
-                                        <div class="title center">
-                                            <h4>Class Room</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <?php include('common/footer.php') ?>
