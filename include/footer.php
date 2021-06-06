@@ -62,7 +62,7 @@
                 </div>
                 <div class="copyright">
                     <div class="float-lt">
-                        Dirty Clean &copy; <?php echo date('Y'); ?>. All rights reserved.
+                        ICS College &copy; <?php echo date('Y'); ?>. All rights reserved.
                     </div>
                     <!--  <div class="pull-right">Design & Developed by <a href="http://www.innovins.com/">Innovins</a></div> -->
                 </div>

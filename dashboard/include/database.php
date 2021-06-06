@@ -14,7 +14,8 @@
 		
 		public function open_connection()
 		{
-			$this->connection = new mysqli("localhost", "root", "", "dirty-clean");
+			//$this->connection = new mysqli("localhost", "kafka5hm_icsuser", ";slYEYy^HdVB", "kafka5hm_icscollege");
+			$this->connection = new mysqli("localhost", "root", "", "final_testing");
 			if ($this->connection->connect_errno) {
 				die("Failed to connect to MySQL: (" . $this->connection->connect_errno . ") " . $this->connection->connect_error);
 			}

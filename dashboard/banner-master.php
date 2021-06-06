@@ -167,8 +167,7 @@
 									<th>#</th>
 									<th>Image</th>
 									<th>Title</th>
-									<th>Display Order</th>
-									<th>Active</th>
+								
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -183,8 +182,7 @@
 									<td><?php echo $x++; ?></td>
 									<td><img src="../img/banner/<?php echo $file_name.'_crop.'.$ext ?>" width="100" /></td>
 									<td><?php echo $row['title'] ?></td>
-									<td><?php echo $row['display_order'] ?></td>
-									<td><?php echo $row['active']; ?></td>
+									
 									<td>
 										<a href="<?php echo $addURL; ?>?edit&id=<?php echo $row['id'] ?>" name="edit" class="" title="Click to edit this row"><i class="icon-pencil"></i></a>
 										<a class="" href="<?php echo $deleteURL; ?>?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete?');" title="Click to delete this row, this action cannot be undone."><i class="icon-remove3"></i></a>

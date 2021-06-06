@@ -1,14 +1,25 @@
+<?php
+ include('site-config.php');
+
+//  $sql = "SELECT * FROM `dc_contact_detail` ORDER BY created_at ASC";
+//  $result = $func->query($sql);
+
+ $sql = "SELECT * FROM `dc_contact_detail` ORDER BY created_at ASC ";
+ $result = $func->query($sql);
+ $arr_result=array();
+ while($row = $func->fetch($result)){  
+   array_push($arr_result,$row);
+ }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
   
 <!-- Mirrored from themes.hody.co/html/dylan/page-contact-simple.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Feb 2021 11:05:12 GMT -->
 <head>
-<<<<<<< HEAD
     <title>ICS | Contact Us</title>
-=======
-    <title>Dylan | Responsive Multi-Purpose HTML Template</title>
->>>>>>> 4a68a0e2fca3a837e59728cb665608131a920556
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,11 +46,7 @@
     </script>
   </head>
 
-<<<<<<< HEAD
-  <body style="overflow-x:hidden;">
-=======
   <body>
->>>>>>> 4a68a0e2fca3a837e59728cb665608131a920556
     <!-- Preloader-->
     <div id="loader">
       <div class="centrize">
@@ -55,7 +62,7 @@
     
     <?php include('common/header.php'); ?>
 
-    <section style="display:none;">
+  <section style="display:none;">
     <div class="flexslider" id="home-slider">
       <ul class="slides">
         <li>
@@ -168,17 +175,10 @@
   </section>
   
     <!-- End Navigation Bar-->
-<<<<<<< HEAD
-    <section class="p-0" style="display:block;">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="full-width" id="map" data-title="We are here!" data-lat="17.73169295115072" data-long="73.4017169797944"></div>
-=======
     <section class="p-0">
       <div class="container-fluid">
         <div class="row">
           <div class="full-width" id="map" data-title="We are here!" data-lat="40.773328" data-long="-73.960088"></div>
->>>>>>> 4a68a0e2fca3a837e59728cb665608131a920556
         </div>
       </div>
     </section>
@@ -186,107 +186,21 @@
     <section class="p-0">
       <div class="container-fluid">
         <div class="row row-flex">
-<<<<<<< HEAD
-          <div class="col-md-2 hidden-sm hidden-xs">
-            <div class="box-row grey-bg pt-100 pb-100">
-                <h3>Principal</h3>
-                <hr>
-                <h5>Prof. Name</h5>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Mail: <a href="mailto:johndoe042@gmail.com">johndoe042@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="col-md-2 hidden-sm hidden-xs">
-            <div class="box-row grey-bg pt-100 pb-100">
-                <h3>Administrative Office</h3>
-                <hr>
-                <h5>Prof. Name</h5>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Mail: <a href="mailto:johndoe042@gmail.com">johndoe042@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="col-md-2 hidden-sm hidden-xs">
-            <div class="box-row grey-bg pt-100 pb-100">
-                <h3>Head Of Departments</h3>
-                <hr>
-                <h5>Prof. Name</h5>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Mail: <a href="mailto:johndoe042@gmail.com"> johndoe042@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="col-md-2 hidden-sm hidden-xs">
-            <div class="box-row grey-bg pt-100 pb-100">
-                <h3>Controller Examination</h3>
-                <hr>
-                <h5>Prof. Name</h5>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Mail: <a href="mailto:johndoe042@gmail.com"> johndoe042@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="col-md-2 hidden-sm hidden-xs">
-            <div class="box-row grey-bg pt-100 pb-100">
-                <h3>Principal</h3>
-                <hr>
-                <h5>Prof. Name</h5>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Mail: <a href="mailto:johndoe042@gmail.com"> johndoe042@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="col-md-2 hidden-sm hidden-xs">
-            <div class="box-row grey-bg pt-100 pb-100">
-                <h3>Principal</h3>
-                <hr>
-                <h5>Prof. Name</h5>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Mail: <a href="mailto:johndoe042@gmail.com"> johndoe042@gmail.com</a></p>
-=======
+
+        <?php  
+          foreach ($arr_result as $value) {
+            ?>
           <div class="col-md-3 hidden-sm hidden-xs">
-            <div class="box-row grey-bg pt-100 pb-100">
-                <h3>Principal</h3>
+          <div class="box-row grey-bg pt-100 pb-100">
+                <h3><?php echo $value['pos_title'];?></h3>
                 <hr>
-                <h4>Prof. Name</h4>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Mail: <a href="mailto:mukundvishwakarma042@gmail.com"> mukundvishwakarma042@gmail.com</a></p>
+                <h4><?php echo $value['prof_name'];?></h4>
+                <p>Tel: <a href="tel:<?php echo $value['phone']; ?>"><?php echo $value['phone'];?></a></p>
+                <p>Tel: <a href="tel:<?php echo $value['alt_phone']; ?>"><?php echo $value['alt_phone'];?></a></p>
+                <p>Mail: <a href="mailto:<?php echo $value['email']; ?>"><?php echo $value['email'];?></a></p>
             </div>
           </div>
-          <div class="col-md-3 hidden-sm hidden-xs">
-            <div class="box-row grey-bg pt-100 pb-100">
-                <h3>Administrative Office</h3>
-                <hr>
-                <h4>Prof. Name</h4>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Mail: <a href="mailto:mukundvishwakarma042@gmail.com"> mukundvishwakarma042@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="col-md-3 hidden-sm hidden-xs">
-            <div class="box-row grey-bg pt-100 pb-100">
-                <h3>Head Of Departments</h3>
-                <hr>
-                <h4>Prof. Name</h4>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Mail: <a href="mailto:mukundvishwakarma042@gmail.com"> mukundvishwakarma042@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="col-md-3 hidden-sm hidden-xs">
-            <div class="box-row grey-bg pt-100 pb-100">
-                <h3>Controller Of Examination</h3>
-                <hr>
-                <h4>Prof. Name</h4>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Tel: <a href="tel:022 22671871"> 022 22671871</a></p>
-                <p>Mail: <a href="mailto:mukundvishwakarma042@gmail.com"> mukundvishwakarma042@gmail.com</a></p>
->>>>>>> 4a68a0e2fca3a837e59728cb665608131a920556
-            </div>
-          </div>
+         <?php  } ?>
           
         </div>
       </div>

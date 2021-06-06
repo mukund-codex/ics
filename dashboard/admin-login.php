@@ -3,7 +3,7 @@
 	include 'include/admin-functions.php';
 	$admin = new AdminFunctions();
 	if($admin->sessionExists()){
-		header("location: banner-master.php");
+		header("location: headercontent-master.php");
 		exit();
 	}
 
@@ -13,7 +13,7 @@
 	
 	if(isset($_POST['signin'])){
 		if($csrf->check_valid('post')) {
-			$admin->adminlogin($_POST, "personal-details.php");
+			$admin->adminlogin($_POST, "headercontent-master.php");
 		}
 	}
 ?>
@@ -91,7 +91,7 @@
 				<div class="col-sm-12">
 					<div class="footer clearfix">
 					  <div class="pull-left">
-						<p>Copyright &copy; <?php echo COPYRIGHT ?> <?php echo SITE_NAME ?>. All rights Reserved. Developed by - <a href="http://www.innovins.com/" target="_blank">Innovins</a></p>
+						<p>Copyright &copy; <?php echo COPYRIGHT ?> <?php echo SITE_NAME ?>. All rights Reserved. Developed by - <a href="" target="_blank">ICS College</a></p>
 					  </div>
 					</div>
 				</div>

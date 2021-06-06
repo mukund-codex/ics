@@ -1,3 +1,107 @@
+<?php 
+// $data = $func->getAllBanners();
+$sql = "SELECT * FROM `dc_header_aboutus_image` ORDER BY id ASC";
+$result = $func->query($sql);
+
+$sqlHAD = "SELECT * FROM `dc_header_aboutus_sanstha` ORDER BY id ASC";
+$resultHAD = $func->query($sqlHAD);
+
+
+//G&A
+$sqlGB = "SELECT * FROM `dc_header_governingbody` ORDER BY id ASC";
+$resultGB = $func->query($sqlGB);
+
+$sqlBOS = "SELECT * FROM `dc_header_boardofstudies` ORDER BY id ASC";
+$resultBOS = $func->query($sqlBOS);
+
+$sqlFC = "SELECT * FROM `dc_header_financecommittee` ORDER BY id ASC";
+$resultFC = $func->query($sqlFC);
+
+$sqlCD = "SELECT * FROM `dc_header_collegedevelopment` ORDER BY id ASC";
+$resultCD = $func->query($sqlCD);
+
+$sqlAC = "SELECT * FROM `dc_header_academic_council` ORDER BY id ASC";
+$resultAC = $func->query($sqlAC);
+
+
+
+//Academics
+$sqlHA = "SELECT * FROM `dc_header_academic` ORDER BY id ASC";
+$resultHA = $func->query($sqlHA);
+
+$sqlHD = "SELECT * FROM `dc_header_department` ORDER BY id ASC";
+$resultHD = $func->query($sqlHD);
+
+
+
+//IQAC
+
+$sqliqac = "SELECT * FROM `dc_header_iqac` ORDER BY id ASC";
+$resultiqac = $func->query($sqliqac);
+
+$sqlaqar = "SELECT * FROM `dc_header_aqar` ORDER BY id ASC";
+$resultaqar = $func->query($sqlaqar);
+
+$sqlmom = "SELECT * FROM `dc_header_mom` ORDER BY id ASC";
+$resultmom = $func->query($sqlmom);
+
+$sqlnaac = "SELECT * FROM `dc_header_naac` ORDER BY id ASC";
+$resultnaac = $func->query($sqlnaac);
+
+$sqldown = "SELECT * FROM `dc_header_download` ORDER BY id ASC";
+$resultdown = $func->query($sqldown);
+
+
+
+
+
+
+
+//Examination
+$sqlR = "SELECT * FROM `dc_header_rulesregulation` ORDER BY id ASC";
+$resultR = $func->query($sqlR);
+
+$sqlHO = "SELECT * FROM `dc_header_others` ORDER BY id ASC";
+$resultHO = $func->query($sqlHO);
+
+
+
+//Admission
+$sqlCOC = "SELECT * FROM `dc_header_codeofcontent` ORDER BY id ASC";
+$resultCOC = $func->query($sqlCOC);
+
+$sqlARC = "SELECT * FROM `dc_header_antiraggingcell` ORDER BY id ASC";
+$resultARC = $func->query($sqlARC);
+
+$sqlOA = "SELECT * FROM `dc_header_othersadmission` ORDER BY id ASC";
+$resultOA = $func->query($sqlOA);
+
+
+
+
+//student corner
+$sqlinplink = "SELECT * FROM `dc_header_implink` ORDER BY id ASC";
+$resultinplink = $func->query($sqlinplink);
+
+$sqlOS = "SELECT * FROM `dc_header_otherstudent` ORDER BY id ASC";
+$resultOS = $func->query($sqlOS);
+
+//logo 
+
+$sqllogo = "select * from dc_header_college_logo order by id asc";
+$resultlogo = $func->query($sqllogo);
+// print_r($resultAnnouncements);exit;
+
+//ac
+$sqlAnnouncements = "SELECT * FROM `dc_announcements` ORDER BY id ASC";
+$resultAnnouncements = $func->query($sqlAnnouncements);
+
+
+
+?>
+
+
+
 <header id="topnavbar" style="border-bottom: 1px solid #e7e7e7;background-color:#515151">
     <div class="container" style="width:90%">
         <div class="row">
@@ -20,9 +124,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2 col-sm-6 col-xs-12" style="height:60px;">
-                    <div class="btn-container text-left mb-15" style="padding-top: 4px;"><a class="btn btn-dark" href="../ics/dashboard/admin-login.php">Admin Login<span class="btn-icon btn-icon-animated" style="font-size: large;" ><i class="hc-user"></i></span></a>
-          </div>
-                    <!-- <a href="#"> <h3 style="font-size:15px; color:#fff;"> <strong style="padding: 10px;padding-bottom: 15px;background-color: #E43129;"> Admin Login  </strong>  </h3></a>  -->
+                        <div class="btn-container text-left mb-15" style="padding-top: 4px;"><a class="btn btn-dark"
+                                target='_blank' href="../ics/dashboard/admin-login.php">Admin Login<span
+                                    class="btn-icon btn-icon-animated" style="font-size: large;"><i
+                                        class="hc-user"></i></span></a>
+                        </div>
+                        <!-- <a href="#"> <h3 style="font-size:15px; color:#fff;"> <strong style="padding: 10px;padding-bottom: 15px;background-color: #E43129;"> Admin Login  </strong>  </h3></a>  -->
                     </div>
                 </div>
             </div>
@@ -32,15 +139,24 @@
 
 <header id="topnavbar" style="padding-top:10px;padding-bottom:10px;border-bottom: 1px solid #e7e7e7;">
     <div class="container" style="width:90%">
+    <?php 
+        while($row = $func->fetch($resultlogo)){ 
+        $file_name_college_logo = str_replace('', '-', strtolower( pathinfo($row['college_logo'], PATHINFO_FILENAME)));
+        $ext_college_logo = pathinfo($row['college_logo'], PATHINFO_EXTENSION); 
+
+        $file_name_college_banner = str_replace('', '-', strtolower( pathinfo($row['college_banner'], PATHINFO_FILENAME)));
+        $ext_college_banner = pathinfo($row['college_banner'], PATHINFO_EXTENSION); 
+    ?>
         <div class="row">
             <div class="col-md-2 col-sm-3 col-xs-3">
-                <img src="img/college-logo.jpg" class="logo-img" width="70%" />
+                <img src="img/collegelogo/<?php echo $file_name_college_logo.'_crop.'.$ext_college_logo ?>" class="logo-img" width="70%" />
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-8 col-sm-9 col-xs-9 has-megamenu">
-                <img src="img/new-name-logo.png" width="100%" />
+                <img src="img/collegelogo/<?php echo $file_name_college_banner.'_crop.'.$ext_college_banner ?>" width="100%" />
             </div>
         </div>
+        <?php } ?>
     </div>
 </header>
 
@@ -48,11 +164,23 @@
     <div class="container" style="width:90%">
         <div class="row">
             <div class="col-md-2 col-sm-6 col-xs-6">
-                <h3 class="header-class" style="font-size:15px; color:#fff;padding-left:8%;"> <strong> Announcements</strong> </h3>
+                <h3 class="header-class" style="font-size:15px; color:#fff;padding-left:8%;"> <strong>
+                        Announcements</strong> </h3>
             </div>
             <div class="col-md-9 col-sm-6 col-xs-6 has-megamenu">
                 <h3>
-                    <marquee style="color:#fff; font-size:15px;font-weight:300"> <a href="#" target="_blank">News Updates</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank">Result Updates</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank">Admission Updates</a> </marquee>
+                    <marquee style="color:#fff; font-size:15px;font-weight:300"> 
+                    <?php 
+                          while($row = $func->fetch($resultAnnouncements)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                           
+                        ?>
+                    <a href="<?php echo (!empty($file_name)==1) ? 'img/headers/announcements/'.$file_name.'.'.$ext : $row['link']?>" target="_blank"><?php echo $row['title']; ?></a> 
+                     &nbsp;&nbsp;&nbsp;&nbsp; 
+                     <?php } ?>
+                    
+                    </marquee>
                 </h3>
             </div>
         </div>
@@ -85,6 +213,7 @@
                         </a>
                     </div>
                 </div>
+                
                 <div id="navigation">
                     <ul class="navigation-menu nav">
                         <li class="">
@@ -93,136 +222,242 @@
 
                         <li class="menu-item-has-children has-megamenu">
                             <a href="#">About Us</a>
-                            <ul class="submenu megamenu"  style="width:50%;">
+                            <ul class="submenu megamenu" style="width:50%;">
+
                                 <li class="menu-item-has-children">
+                                    <?php 
+                          while($row = $func->fetch($result)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['image'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['image'], PATHINFO_EXTENSION); 
+                        ?>
+
                                     <center>
-                                        <img src= "https://www.ckthakurcollege.net/maindesign/images/bldg_images/nav_about.jpg"  width="90%"/>
+                                        <img alt="">
+                                        <img src="img/headers/<?php echo $file_name.'_crop.'.$ext ?>" width="90%" />
                                     </center>
+
+                                    <?php } ?>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>About Sanstha</span>
                                     <ul class="sub-menu">
-                                        <!-- <li>
-                                            <a href="">About Sanstha</a>
-                                        </li> -->
+                        <?php 
+                          while($row = $func->fetch($resultHAD)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">About Emblem</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Vision</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="">Goals & Objectives</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="">Source of Inspiration</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Guiding Light</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Divine Image</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Boards of Executives</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Institution</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Facilities</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li class="menu-item-has-children has-megamenu">
                             <a href="#">Governance & Administration</a>
                             <ul class="submenu megamenu">
                                 <li class="menu-item-has-children">
                                     <span>Governing Body</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultGB)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Functioning</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Composition</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Minutes of Meeting</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Action taken Report</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>Board of Studies</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultBOS)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Functioning</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Composition</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Minutes of Meeting</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Action taken Report</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>Finance Committee</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultFC)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Functioning</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Composition</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Minutes of Meeting</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Action taken Report</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>College Devlopment Committee</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultCD)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Functioning</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Composition</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Minutes of Meeting</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Action taken Report</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>Academic Council</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultAC)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Functioning</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Composition</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Minutes of Meeting</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Action taken Report</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                             </ul>
@@ -233,42 +468,73 @@
                                 <li class="menu-item-has-children">
                                     <!-- <span>Academic</span> -->
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultHA)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Academic Program</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Academic Calender</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-<<<<<<< HEAD
-                                            <a href="sample.pdf" target="_blank">Program Outcome</a>
-=======
-                                            <a href="sample.pdf" target="_blank">Academic Program</a>
->>>>>>> 4a68a0e2fca3a837e59728cb665608131a920556
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>Departments</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultHD)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Arts</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Commerce</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="">Science</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="">Information Technology</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Computer Science</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Bachelor of Management Studies</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                             </ul>
@@ -279,98 +545,181 @@
                                 <li class="menu-item-has-children">
                                     <!-- <span>Departments</span> -->
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultiqac)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">About the IQAC</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Objectives of IQAC</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Composition of IQAC</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Message by IQAC Co-ordinator</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Best Practices</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Perspective Plan</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Student Satisfaction Survey</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Institutional Distinctiveness</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Activity Form</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">IQAC Calender</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Procedures and Policies</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>AQAR</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultaqar)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">2019 - 2020</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">2018 - 2019</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">2017 - 2018</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>MOM</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultmom)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">2019 - 2020</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">2018 - 2019</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">2017 - 2018</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>NAAC</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultnaac)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">NAAC Grading</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">SSR 1st Cycle</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">SSR 2nd Cycle</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">SSR 3rd Cycle</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>Downloads</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultdown)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">CAS/API/PBAS Format</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Manual</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Performa</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                             </ul>
@@ -381,65 +730,76 @@
                                 <li class="menu-item-has-children">
                                     <!-- <span>Departments</span> -->
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultHO)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Examination cell</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Rules & Regulation</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Scheme of Evaluation</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Examination Schedule</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Examination Calender</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Examination Form</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Hall Ticket</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Result</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Examination Grievance Redressal</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>Rules And Regulations</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultR)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">ATKT</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Attendance</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Internal Examinations</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Project work/ Assignment/ Overall Performance</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Duplicate Hall Ticket/ Marksheet</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Examination Fee Structure</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Unfair Means/ Malpractices</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Verification/ Revaluation</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <li class="menu-item-has-children has-megamenu">
@@ -448,61 +808,109 @@
                                 <li class="menu-item-has-children">
                                     <!-- <span>Departments</span> -->
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultOA)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Online Admission</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">College Prospectus</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="sample.pdf" target="_blank">Fee Structure</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="">Admission Proccess</a>
-                                        </li>
-                                        <li>
-                                            <a href="" >Scholarship</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Admission Cancellation Guidelines</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://mu.ac.in/readmore">University Circular Link</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Merit List</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>Code Of Conduct</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultCOC)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Teaching Staff</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Non-Teaching Staff</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="">Student</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>Anti-Ragging Cell</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultARC)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Composition</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Squad</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="">Helpline</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href=""> Rules & Regulation</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                             </ul>
@@ -513,121 +921,86 @@
                                 <li class="menu-item-has-children">
                                     <!-- <span>Departments</span> -->
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultOS)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Feedback Form</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
                                         <li>
-                                            <a href="">Student Welfare Scheme</a>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
                                         <li>
-                                            <a href="" >Student Council & Welfare</a>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
                                         </li>
-                                        <li>
-                                            <a href="">Women Development Cell</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank" >UGC Rules & Regulation</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Facilities a& Services at a Glance</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Duplicate ID Card / Library Card Form</a>
-                                        </li>
-                                        <li>
-                                            <a href="sample.pdf" target="_blank">Student Grievance Redressal</a>
-                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <span>Important Links</span>
                                     <ul class="sub-menu">
+                                    <?php 
+                          while($row = $func->fetch($resultinplink)){ 
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION); 
+                            if(!empty($file_name) == 1) {
+                        ?>
                                         <li>
-                                            <a href="">Library</a>
+                                            <a href="img/headers/<?php echo $file_name.'.'.$ext ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
                                         </li>
+
+                        <?php 
+                                    
+                            }
+                            if($row['link']){
+                        ?>
+                                        <li>
+                                            <a href="<?php echo $row['link']; ?>"
+                                                target="_blank"><?php  echo $row['title']; ?></a>
+                                        </li>
+                        <?php
+                            }else if(!$row['link'] && !$file_name){
+                        ?>
+                                        <li>
+                                            <a href="#"><?php  echo $row['title']; ?></a>
+                                        </li>
+                                        <?php
+                        }
+                        
+                        } ?>
+
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                         <li class="has-megamenu">
                             <a href="#">Alumni</a>
-<<<<<<< HEAD
+
                         </li>
                         <li class="has-megamenu">
-                            <a href="contact-us.php">Contact</a>
+                            <a href="contact-us.php">Contact Us</a>
+
                         </li>
-=======
-                        </li>
-                        <li class="menu-item-has-children has-megamenu">
-                            <a href="contact-us.php">Contact</a>
-                            <ul class="submenu megamenu">
-                                <li class="menu-item-has-children">
-                                    <span>Principal</span>
-                                    <center><hr style="width:90%;margin-top:10px;margin-bottom:10px;"></center>
-                                    <span style="font-weight:bolder;">Prof. Name</span>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="tel:022 22671871">Tel: 022 22671871</a>
-                                        </li>
-                                        <li>
-                                            <a href="tel:022 22671871">Fax: 022 22671871</a>
-                                        </li>
-                                        <li>
-                                            <a href="mailto:mukundvishwakarma042@gmail.com">Mail: mukundvishwakarma042@gmail.com</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <span>Administrative Office</span>
-                                    <center><hr style="width:90%;margin-top:10px;margin-bottom:10px;"></center>
-                                    <span style="font-weight:bolder;">Prof. Name</span>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="tel:022 22671871">Tel: 022 22671871</a>
-                                        </li>
-                                        <li>
-                                            <a href="tel:022 22671871">Fax: 022 22671871</a>
-                                        </li>
-                                        <li>
-                                            <a href="mailto:mukundvishwakarma042@gmail.com">Mail: mukundvishwakarma042@gmail.com</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <span>Head Of Departments</span>
-                                    <center><hr style="width:90%;margin-top:10px;margin-bottom:10px;"></center>
-                                    <span style="font-weight:bolder;">Prof. Name</span>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="tel:022 22671871">Tel: 022 22671871</a>
-                                        </li>
-                                        <li>
-                                            <a href="tel:022 22671871">Fax: 022 22671871</a>
-                                        </li>
-                                        <li>
-                                            <a href="mailto:mukundvishwakarma042@gmail.com">Mail: mukundvishwakarma042@gmail.com</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <span>Controller Of Examination</span>
-                                    <center><hr style="width:90%;margin-top:10px;margin-bottom:10px;"></center>
-                                    <span style="font-weight:bolder;">Prof. Name</span>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="tel:022 22671871">Tel: 022 22671871</a>
-                                        </li>
-                                        <li>
-                                            <a href="tel:022 22671871">Fax: 022 22671871</a>
-                                        </li>
-                                        <li>
-                                            <a href="mailto:mukundvishwakarma042@gmail.com">Mail: mukundvishwakarma042@gmail.com</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
->>>>>>> 4a68a0e2fca3a837e59728cb665608131a920556
+
                         <li class="has-megamenu">
                             <a href="#">Photo Gallery</a>
                         </li>

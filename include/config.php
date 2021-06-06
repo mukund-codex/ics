@@ -34,7 +34,7 @@
 
 	/* BASE CONFIG */
 		
-		DEFINE('SITE_NAME','Dirty Clean');
+		DEFINE('SITE_NAME','ICS College');
 		DEFINE('TITLE','Administrator Panel | '.SITE_NAME);
 		DEFINE('PREFIX','dc_');
 		DEFINE('COPYRIGHT',date("Y"));

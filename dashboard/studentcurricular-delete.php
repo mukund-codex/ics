@@ -4,7 +4,7 @@
 	$admin = new AdminFunctions();
 	// $pageName = "Product Types";
 	// $pageURL = 'product-types-delete.php';
-	$parentPageURL = 'welcome.php';
+	$parentPageURL = 'undergraduate-courses-master.php';
 
 	if(!$loggedInUserDetailsArr = $admin->sessionExists()){
 		header("location: admin-login.php");
@@ -18,7 +18,7 @@
 		}
 
 		//delete from database
-		$result = $admin->deleteHomeCarousel($id);
+		$result = $admin->deleteStudentCurricular($id , 'UGC' , 'sc');
 		header("location:".$parentPageURL."?deletesuccess");
 	}
 ?>

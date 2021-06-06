@@ -16,24 +16,30 @@
 	$token_id = $csrf->get_token_id();
 	$token_value = $csrf->get_token($token_id);
 
+	$sqlcategory = "SELECT * FROM `dc_category` where active = 1 ";
+    $resultcategory = $admin->query($sqlcategory);
+   $removeSelectedtabs = $admin->removeSelectedTabs();
+
 	if(isset($_POST['register'])){
 		if($csrf->check_valid('post')) {
 			$allowed_ext = array('image/jpeg','image/jpg');
 			
-			$result = $admin->addBanner($_POST,$_FILES);
+			$result = $admin->addStudentAcademic($_POST,$_FILES,'UGC');
 			header("location:".$pageURL."?registersuccess");
 			exit;
 		}
 	}
+
 	if(isset($_GET['edit'])){
 		$id = $admin->escape_string($admin->strip_all($_GET['id']));
-		$data = $admin->getUniqueBannerById($id);
+		$data = $admin->getUniqueStudentAcademicById($id , 'UGC');
 	}
+
 	if(isset($_POST['update'])) {
 		if($csrf->check_valid('post')) {
 			$allowed_ext = array('image/jpeg','image/jpg');
 			$id = trim($admin->escape_string($admin->strip_all($_POST['id'])));
-			$result = $admin->updateBanner($_POST,$_FILES);
+			$result = $admin->updateStudentAcademic($_POST,$_FILES,'UGC');
 			
 			header("location:".$pageURL."?updatesuccess&edit&id=".$id);
 			exit;
@@ -203,10 +209,38 @@
 					</div>
 					<div class="panel-body">
 						<div class="form-group">
+
+						<div class="row">
+                                <div class="col-sm-6">
+                                    <label>Select Category<span style="color:red">*</span> </label>
+                                    <select class="form-control" required name="category" id="category" disabled>
+                                        <option value="">Select Category</option>
+                                        <?php
+                                        //print_r($data);exit();
+										while($row = $admin->fetch($resultcategory))
+										{
+                                            
+									?>
+                                        <option value="<?php echo $row['category'];?>" selected>
+                                            <?php echo $row['category'];?>
+                                        </option>
+                                        <?php
+										}
+									?>
+                                    </select>
+
+
+                                </div>
+
+
+
+                            </div>
+                            <br>
+							
 							<div class="row">
 								<div class="col-sm-6">
 									<label>Image <span style="color:red">*</span></label>
-									<input type="file" class="form-control" name="banner_img"  accept="image/jpg,image/png,image/jpeg" <?php if(!isset($_GET['edit'])) { echo 'required'; } ?> id="" data-image-index="0" />
+									<input type="file" class="form-control" name="stdacd_img"  accept="image/jpg,image/png,image/jpeg" <?php if(!isset($_GET['edit'])) { echo 'required'; } ?> id="" data-image-index="0" />
 									<span class="help-text">
 										Files must be less than <strong>3 MB</strong>.<br>
 										Allowed file types: <strong>png jpg jpeg</strong>.<br>
@@ -214,10 +248,10 @@
 									</span>
 									<br>
 									<?php if(isset($_GET['edit'])) {
-										$file_name = str_replace('', '-', strtolower( pathinfo($data['banner_img'], PATHINFO_FILENAME)));
-										$ext = pathinfo($data['banner_img'], PATHINFO_EXTENSION);
+										$file_name = str_replace('', '-', strtolower( pathinfo($data['image'], PATHINFO_FILENAME)));
+										$ext = pathinfo($data['image'], PATHINFO_EXTENSION);
 									?>
-										Previous Image : <br><img src="../img/banner/<?php echo $file_name.'_crop.'.$ext ?>" width="100"  /><br><br>
+										Previous Image : <br><img src="../img/StudentAcademic/undergraduate/<?php echo $file_name.'_crop.'.$ext ?>" width="100"  /><br><br>
 									<?php
 									} ?>
 								</div>
@@ -267,7 +301,7 @@
 	$(document).ready(function() {
 		$('input[type="file"]').change(function(){
 			// loadImageInModal(this);
-			loadImagePreview(this, (1366 / 594));
+			loadImagePreview(this, (800 / 533));
 		});
 	});
 	
@@ -294,26 +328,7 @@
 
 
 		
-		var editor = CKEDITOR.replace( 'sub_title', {
-			height: 200,
-			filebrowserImageBrowseUrl : 'js/editor/ckfinder/ckfinder.html?type=Images',
-			filebrowserImageUploadUrl : 'js/editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-			toolbarGroups: [
-				
-				{"name":"document","groups":["mode"]},
-				{"name":"clipboard","groups":["undo"]},
-				{"name":"basicstyles","groups":["basicstyles"]},
-				{"name":"links","groups":["links"]},
-				{"name":"paragraph","groups":["list"]},
-				{"name":"insert","groups":["insert"]},
-				{"name":"insert","groups":["insert"]},
-				{"name":"styles","groups":["styles"]},
-				{"name":"paragraph","groups":["align"]},
-				{"name":"about","groups":["about"]},
-				{"name":"colors","tems": [ 'TextColor', 'BGColor' ] },
-			],
-			removeButtons: 'Iframe,Flash,Strike,Smiley,Subscript,Superscript,Anchor,Specialchar'
-		} );
+	
 
 		CKFinder.setupCKEditor( editor, '../' );
 	</script>

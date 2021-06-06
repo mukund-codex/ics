@@ -12,8 +12,10 @@
 		exit();
 	}
 
-    $sqlcategory = "SELECT * FROM `dc_category` ORDER BY category ASC";
+    // $sqlcategory = "SELECT * FROM `dc_category` ORDER BY category ASC";
+    $sqlcategory = "SELECT * FROM `dc_category` where active = 1 ";
     $resultcategory = $admin->query($sqlcategory);
+   $removeSelectedtabs = $admin->removeSelectedTabs();
 
     // print_r($resultcategory);exit();
     $getAlltabs = $admin->getAllBoxesTabs();
@@ -22,6 +24,9 @@
 	$csrf = new csrf();
 	$token_id = $csrf->get_token_id();
 	$token_value = $csrf->get_token($token_id);
+
+    $sqlsubcategory = "SELECT * FROM `dc_subtype_courses_list` where active = 1 ";
+    $resultsubcategory = $admin->query($sqlsubcategory);
 
 	if(isset($_POST['register'])){
 		if($csrf->check_valid('post')) {
@@ -228,44 +233,82 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="row">
-                                <!-- <div class="col-sm-6">
-                                    <label>Select Tabs<span style="color:red">*</span> </label>
-                                    <select class="form-control" required name="tabs" id="tabs">
-                                        <option value="">Select Tabs</option>
-                                        <?php
-										while($row = $admin->fetch($getAlltabs))
-										{
-									?>
-
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['tabs'];?></option>
-                                        <?php
-										}
-									?>
-                                    </select>
-
-                                </div> -->
-                                <div class="col-sm-12">
+                                <div class="col-sm-6">
                                     <label>Select Category<span style="color:red">*</span> </label>
-                                    <select class="form-control" required name="category" id="category">
-                                        <option value="">Select Tabs</option>
+                                    <select class="form-control" required name="category" id="category" disabled>
+                                        <option value="">Select Category</option>
                                         <?php
-                                        //print_r($data);exit();
-										while($row = $admin->fetch($resultcategory))
-										{
-                                            
-									?>
-                                        <option value="<?php echo $row['category'];?>"><?php echo $row['category'];?></option>
+                                            //print_r($data);exit();
+                                            while($row = $admin->fetch($resultcategory))
+                                            {
+                                                
+                                        ?>
+                                        <option value="<?php echo $row['category'];?>" selected>
+                                            <?php echo $row['category'];?>
+                                        </option>
                                         <?php
-										}
-									?>
+                                            }
+                                        ?>
                                     </select>
 
 
                                 </div>
 
+
+                                <!-- Sub Categoery -->
+                                <div class="col-sm-6">
+                                    <label>Select Sub Category<span style="color:red">*</span> </label>
+                                    <select class="form-control" required name="subcategory" id="subcategory" disabled>
+                                        <option value="">Select Sub Category</option>
+                                        <?php
+                                        //print_r($data);exit();
+										while($row = $admin->fetch($resultsubcategory))
+										{
+                                            
+									?>
+                                        <option value="<?php echo strip_tags($row['courses_subtype']) ;?>" selected>
+                                            <?php echo strip_tags($row['courses_subtype']) ;?>
+                                        </option>
+                                        <?php
+										}
+									?>
+                                    </select>
+                                </div>
+
+
+
                             </div>
                             <br>
+
                             <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Select Tabs<span style="color:red">*</span> </label>
+                                    <select class="form-control" required name="tabs" id="tabs">
+                                        <option value="">Select Tabs</option>
+                                        <?php
+                                       foreach($removeSelectedtabs as $a)
+                                       {
+                                           //echo $a;
+                                           $sqlDepartName = "SELECT * FROM `dc_boxed_tabs` Where department_id = '$a' ";
+                                           $resultDepartName = $admin->query($sqlDepartName);
+                                           while($row = $admin->fetch($resultDepartName)){
+
+									?>
+
+                                        <option value="<?php echo $row['department_id'];?>">
+                                            <?php echo trim($row['tabs']);?></option>
+                                        <?php
+                                       
+
+                                    }
+                                    //print_r($resultDepartName);
+                                     }
+									?>
+                                    </select>
+
+                                </div>
+
+
                                 <div class="col-sm-6">
                                     <label>Image </label>
                                     <input type="file" class="form-control" name="image"
@@ -281,31 +324,17 @@
 										$file_name = str_replace('', '-', strtolower( pathinfo($data['image'], PATHINFO_FILENAME)));
 										$ext = pathinfo($data['image'], PATHINFO_EXTENSION);
 									?>
-                                    <img src="../img/Department/Arts/<?php echo $file_name.'_crop.'.$ext ?>" width="300"
+                                    <img src="../img/Department/<?php echo $file_name.'_crop.'.$ext ?>" width="300"
                                         height="200" />
                                     <?php
 									} ?>
 
                                 </div>
-                                <div class="col-sm-6">
-                                    <label>Department Title</label>
-                                    <textarea col="5" rows="4" class="form-control" name="dept_title"
-                                        id="" /><?php if(isset($_GET['edit'])){ echo $data['dept_title']; }?></textarea>
 
-                                </div>
                             </div>
 
                             <br>
-                            <div class="row">
 
-                                <div class="col-sm-6">
-                                    <label>Discerpstions </label>
-                                    <textarea col="5" rows="4" class="form-control" name="dept_discp"
-                                        id="" /><?php if(empty($_GET['edit'])){ echo $data['dept_discp']; }?></textarea>
-
-                                </div>
-
-                            </div>
                         </div>
 
 
@@ -326,7 +355,7 @@
                     <?php		} ?>
                 </div>
             </form>
-            
+
 
             <?php 	include "include/footer.php"; ?>
 
@@ -343,7 +372,7 @@
     $(document).ready(function() {
         $('input[type="file"]').change(function() {
             // loadImageInModal(this);
-            loadImagePreview(this, (1366 / 594));
+            loadImagePreview(this, (800 / 533));
         });
     });
 

@@ -18,7 +18,7 @@
 		}
 
 		//delete from database
-		$result = $admin->deleteUndergraduateCoursesData($id);
+		$result = $admin->deleteUndergraduateCoursesData($id , 'UGC');
 		header("location:".$parentPageURL."?deletesuccess");
 	}
 ?>

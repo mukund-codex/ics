@@ -3917,10 +3917,11 @@
 		
 		// Gallery Review
 		// Home Content
-		function getCarousel(){
-			$query = "select * from ".PREFIX."home_carousel order by display_order ASC";
-			return $this->query($query);
-		}
+		// function getCarousel(){
+		// 	$query = "select * from ".PREFIX."home_carousel order by display_order ASC";
+		// 	return $this->query($query);
+		// }
+
 		function getHowWeDoIt(){
 			$query = "select * from ".PREFIX."how_we_do order by display_order ASC";
 			return $this->query($query);

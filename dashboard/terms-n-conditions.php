@@ -30,7 +30,7 @@
 	
 	if(isset($_POST['update'])) {
 		$id = trim($admin->escape_string($admin->strip_all($_POST['id'])));
-		$result = $admin->updateGalleryContent($_POST);
+		$result = $admin->updateTermsCondition($_POST);
 		header("location:".$pageURL."?updatesuccess");
 		exit;
 	}
@@ -38,7 +38,7 @@
 	include_once "include/pagination.php";
 	$pagination = new Pagination();
 	$paginationArr = $pagination->generatePagination($pageURL, $pageNo, $total_pages, $linkParam);
-	$qry = $admin->query("SELECT * FROM ".PREFIX."gallery_content where id='5'");
+	$qry = $admin->query("SELECT * FROM ".PREFIX."terms_n_conditions where id='1'");
 	$data = $admin->fetch($qry);
 	
 

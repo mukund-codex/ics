@@ -20,7 +20,7 @@
 		if($csrf->check_valid('post')) {
 			//$allowed_ext = array('image/jpeg','image/jpg');
 			
-			$result = $admin->addUndergraduateImages($_POST,$_FILES);
+			$result = $admin->addUndergraduateImages($_POST,$_FILES,'UGC');
             // print_r($_FILES);exit();
 			header("location:".$pageURL."?registersuccess");
 			exit;
@@ -231,11 +231,11 @@
 								</div> 	 
 								<div class="col-sm-4">
 									<label>Title</label>
-									<input type="text" class="form-control"  placeholder="Title"  name="title" id="" value="<?php if(isset($_GET['edit'])){ echo $data['title']; }?>"/>
+									<textarea col="5" rows="4"  class="form-control" required  name="title" id="" /><?php if(isset($_GET['edit'])){ echo $data['title']; }?></textarea>
 								</div>
 								<div class="col-sm-4">
 									<label>Sub Title</label>
-									<input type="text" class="form-control"  placeholder="Sub Title"  name="sub_title" id="" value="<?php if(isset($_GET['edit'])){ echo $data['sub_title']; }?>"/>
+									<textarea col="5" rows="4"  class="form-control" required  name="sub_title" id="" /><?php if(isset($_GET['edit'])){ echo $data['sub_title']; }?></textarea>
 								</div>
 								
 							</div><br>
@@ -244,10 +244,10 @@
 										<label>Link </label>
 										<input type="text" class="form-control"  placeholder="Link"  name="link" id="" value="<?php if(isset($_GET['edit'])){ echo $data['link']; }?>"/>
 									</div> -->
-								<div class="col-sm-4">
+								<!-- <div class="col-sm-4">
 									<label>Display Order <span style="color:red">*</span></label>
 									<input type="text" class="form-control"  min="1" placeholder="Display Order"  name="display_order" id="" value="<?php if(isset($_GET['edit'])){ echo $data['display_order']; }?>"/>
-								</div>
+								</div> -->
 							</div>
 						</div>
 						</div>
@@ -270,6 +270,8 @@
 	</div>
 
 	<link href="css/crop-image/cropper.min.css" rel="stylesheet">
+	<script type="text/javascript" src="js/editor/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="js/editor/ckfinder/ckfinder.js"></script>
 	<script src="js/crop-image/cropper.min.js"></script>
 	<script src="js/crop-image/image-crop-app.js"></script>
 	<script>
@@ -279,6 +281,116 @@
 			loadImagePreview(this, (800 / 533));
 		});
 	});
+
+
+	var editor = CKEDITOR.replace('title', {
+        height: 200,
+        filebrowserImageBrowseUrl: 'js/editor/ckfinder/ckfinder.html?type=Images',
+        filebrowserImageUploadUrl: 'js/editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        toolbarGroups: [
+
+            {
+                "name": "document",
+                "groups": ["mode"]
+            },
+            {
+                "name": "clipboard",
+                "groups": ["undo"]
+            },
+            {
+                "name": "basicstyles",
+                "groups": ["basicstyles"]
+            },
+            {
+                "name": "links",
+                "groups": ["links"]
+            },
+            {
+                "name": "paragraph",
+                "groups": ["list"]
+            },
+            {
+                "name": "insert",
+                "groups": ["insert"]
+            },
+            {
+                "name": "insert",
+                "groups": ["insert"]
+            },
+            {
+                "name": "styles",
+                "groups": ["styles"]
+            },
+            {
+                "name": "paragraph",
+                "groups": ["align"]
+            },
+            {
+                "name": "about",
+                "groups": ["about"]
+            },
+            {
+                "name": "colors",
+                "tems": ['TextColor', 'BGColor']
+            },
+        ],
+        removeButtons: 'Iframe,Flash,Strike,Smiley,Subscript,Superscript,Anchor,Specialchar'
+    });
+
+	var editor = CKEDITOR.replace('sub_title', {
+        height: 200,
+        filebrowserImageBrowseUrl: 'js/editor/ckfinder/ckfinder.html?type=Images',
+        filebrowserImageUploadUrl: 'js/editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        toolbarGroups: [
+
+            {
+                "name": "document",
+                "groups": ["mode"]
+            },
+            {
+                "name": "clipboard",
+                "groups": ["undo"]
+            },
+            {
+                "name": "basicstyles",
+                "groups": ["basicstyles"]
+            },
+            {
+                "name": "links",
+                "groups": ["links"]
+            },
+            {
+                "name": "paragraph",
+                "groups": ["list"]
+            },
+            {
+                "name": "insert",
+                "groups": ["insert"]
+            },
+            {
+                "name": "insert",
+                "groups": ["insert"]
+            },
+            {
+                "name": "styles",
+                "groups": ["styles"]
+            },
+            {
+                "name": "paragraph",
+                "groups": ["align"]
+            },
+            {
+                "name": "about",
+                "groups": ["about"]
+            },
+            {
+                "name": "colors",
+                "tems": ['TextColor', 'BGColor']
+            },
+        ],
+        removeButtons: 'Iframe,Flash,Strike,Smiley,Subscript,Superscript,Anchor,Specialchar'
+    });
+
 	</script>
 </body>
 </html>

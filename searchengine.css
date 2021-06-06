@@ -1,0 +1,18 @@
+
+    ul.list-unstyled{
+     list-style-type: none;
+     border-radius: 25px;
+      margin-top: 0px;
+      background: #fff;
+      color: #000;
+    }
+    li.new{
+        list-style: none;
+      padding: 12px;
+      cursor: pointer;
+      color: white;
+    }
+    li.new:hover{
+       border-radius: 25px;
+      /* background: #1569C7; */
+    }

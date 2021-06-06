@@ -3,7 +3,7 @@
 	<div class="navbar navbar-inverse" role="navigation">
 		<div class="navbar-header">
 		<a class="sidebar-toggle"><img src="images/toggleIcon.jpg"></a>
-		<a class="navbar-brand" href="banner-master.php"><img style="width: 95px;height: 74px;margin-top: -6px;" src="../images/college-logo.jpg" alt="Dirty Clean" title="Dirty Clean"></a>
+		<a class="navbar-brand" href="headercontent-master.php"><img style="width: 95px;height: 74px;margin-top: -6px;" src="../images/college-logo.jpg" alt="Dirty Clean" title="ICS College"></a>
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons"><span class="sr-only">Toggle navbar</span><i class="icon-grid3"></i></button>
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar"><span class="sr-only">Toggle navigation</span><i class="icon-paragraph-justify2"></i></button>
 		</div>

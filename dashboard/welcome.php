@@ -21,12 +21,17 @@
 	$deleteURL_PG = 'postgraduate-images-delete.php';
     $tableName_PG = 'postgraduate_images';
 
+    $pageName_OI = "Other Courses";
+    $addURL_OI = 'others-images-add.php';
+     $deleteURL_OI = 'others-images-delete.php';
+     $tableName_OI = 'other_images';
+
 
     //infrastructure
     $pageName_INFA = "Infrastructure";
     $addURL_INFA = 'Infrastructure-images-add.php';
 	$deleteURL_INFA = 'Infrastructure-images-delete.php';
-	 $tableName_INFA = 'Infrastructure_images';
+	 $tableName_INFA = 'infrastructure_images';
 
 	if(!$loggedInUserDetailsArr = $admin->sessionExists()){
 		header("location: admin-login.php");
@@ -54,16 +59,16 @@
 	
 	if(isset($_POST['update'])) {
 		$id = trim($admin->escape_string($admin->strip_all($_POST['id'])));
-		$result = $admin->updateWelcomeContent($_POST, $_FILES);
+		$result = $admin->updateAboutUs($_POST, $_FILES);
 		header("location:".$pageURL."?updatesuccess");
 		exit;
 	}
-	if(isset($_POST['update_detailing'])) {
-		$id = trim($admin->escape_string($admin->strip_all($_POST['id'])));
-		$result = $admin->updateHomeDetailingContent($_POST);
-		header("location:".$pageURL."?updatesuccess");
-		exit;
-	}
+	// if(isset($_POST['update_detailing'])) {
+	// 	$id = trim($admin->escape_string($admin->strip_all($_POST['id'])));
+	// 	$result = $admin->updateHomeDetailingContent($_POST);
+	// 	header("location:".$pageURL."?updatesuccess");
+	// 	exit;
+	// }
 
 	include_once "include/pagination.php";
 	$pagination = new Pagination();
@@ -79,6 +84,9 @@
 
     $sql_PG = "SELECT * FROM ".PREFIX.$tableName_PG." order by display_order ASC";
 	$results_PG = $admin->query($sql_PG);
+
+    $sql_OI = "SELECT * FROM ".PREFIX.$tableName_OI." order by id ASC";
+	$results_OI = $admin->query($sql_OI);
 
     $sql_INFA = "SELECT * FROM ".PREFIX.$tableName_INFA." order by display_order ASC";
 	$results_INFA = $admin->query($sql_INFA);
@@ -215,7 +223,6 @@
                                     <th>Image</th>
                                     <th>Title</th>
                                     <th>Sub Title</th>
-                                    <th>Display Order</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -233,7 +240,7 @@
                                             width="100" /></td>
                                     <td><?php echo $row['title'] ?></td>
                                     <td><?php echo $row['sub_title'] ?></td>
-                                    <td><?php echo $row['display_order'] ?></td>
+                                  
 
                                     <td>
                                         <a href="<?php echo $addURL; ?>?edit&id=<?php echo $row['id'] ?>" name="edit"
@@ -263,16 +270,12 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Video Link <span style="color:red">*</span> </label>
-                                    <input type="text" class="form-control" required name="video_link"
-                                        value="<?php if(!empty($data['video_link'])){ echo $data['video_link']; }?>" />
-                                </div>
+                           
                                 <div class="col-sm-12">
                                     <label>Thumbnail Image</label>
                                     <input type="file" id="img" class="form-control"
                                         accept="image/jpeg,image/png,image/jpg" name="thumbnail"
-                                        <?php if(!isset($_GET['edit'])) { echo 'required'; } ?> id=""
+                                        <?php if(!isset($_GET['edit'])) {  } ?> id=""
                                         data-image-index="0" />
                                     <span class="help-text">
 
@@ -281,6 +284,7 @@
                                     </span>
                                     <br>
                                     <?php 
+                                      
 										$file_name = str_replace('', '-', strtolower( pathinfo($data['image'], PATHINFO_FILENAME)));
 										$ext = pathinfo($data['image'], PATHINFO_EXTENSION);
 									?>
@@ -327,7 +331,7 @@
                                     <th>Image</th>
                                     <th>Title</th>
                                     <th>Sub Title</th>
-                                    <th>Display Order</th>
+                                
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -347,7 +351,7 @@
                                             width="100" /></td>
                                     <td><?php echo $row['title'] ?></td>
                                     <td><?php echo $row['sub_title'] ?></td>
-                                    <td><?php echo $row['display_order'] ?></td>
+                                  
 
                                     <td>
                                         <a href="<?php echo $addURL_UG; ?>?edit&id=<?php echo $row['id'] ?>" name="edit"
@@ -369,6 +373,7 @@
             </div>
             <!--undergraduate-->
             </br>
+
             <!--postgraduate-->
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -389,7 +394,7 @@
                                     <th>Image</th>
                                     <th>Title</th>
                                     <th>Sub Title</th>
-                                    <th>Display Order</th>
+                               
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -407,7 +412,7 @@
                                             width="100" /></td>
                                     <td><?php echo $row['title'] ?></td>
                                     <td><?php echo $row['sub_title'] ?></td>
-                                    <td><?php echo $row['display_order'] ?></td>
+                                
 
                                     <td>
                                         <a href="<?php echo $addURL_PG; ?>?edit&id=<?php echo $row['id'] ?>" name="edit"
@@ -428,6 +433,69 @@
                 </div>
             </div>
             <!--postgraduate-->
+
+
+
+            <!--others-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h6 class="panel-title"><i class="icon-stats"></i> <?php echo $pageName_OI; ?></h6>
+                </div>
+                <div class="panel-body">
+
+                    <a href="<?php echo $addURL_OI; ?>" class="label label-primary pull-right">Add
+                        <?php echo $pageName_OI; ?>
+                    </a>
+
+                    <br /><br />
+                    <div class="datatable-selectable-data-postgraduate">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Sub Title</th>
+                               
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+							$x = (10*$pageNo)-9;
+							
+							while($row = $admin->fetch($results_OI)){
+								$file_name = str_replace('', '-', strtolower( pathinfo($row['other_image'], PATHINFO_FILENAME)));
+								$ext = pathinfo($row['other_image'], PATHINFO_EXTENSION);
+?>
+                                <tr>
+                                    <td><?php echo $x++; ?></td>
+                                    <td><img src="../img/Other/<?php echo $file_name.'_crop.'.$ext ?>"
+                                            width="100" /></td>
+                                    <td><?php echo $row['title'] ?></td>
+                                    <td><?php echo $row['sub_title'] ?></td>
+                                
+
+                                    <td>
+                                        <a href="<?php echo $addURL_OI; ?>?edit&id=<?php echo $row['id'] ?>" name="edit"
+                                            class="" title="Click to edit this row"><i class="icon-pencil"></i></a>
+                                        <a class="" href="<?php echo $deleteURL_OI; ?>?id=<?php echo $row['id']; ?>"
+                                            onclick="return confirm('Are you sure you want to delete?');"
+                                            title="Click to delete this row, this action cannot be undone."><i
+                                                class="icon-remove3"></i></a>
+                                    </td>
+
+                                </tr>
+                                <?php
+							}
+?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--Others-->
+
 
             </br>
             <!--infrastructure-->
@@ -450,7 +518,7 @@
                                     <th>Image</th>
                                     <th>Title</th>
                                     <th>Sub Title</th>
-                                    <th>Display Order</th>
+                                  
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -468,7 +536,7 @@
                                     </td>
                                     <td><?php echo $row['title'] ?></td>
                                     <td><?php echo $row['sub_title'] ?></td>
-                                    <td><?php echo $row['display_order'] ?></td>
+                             
 
                                     <td>
                                         <a href="<?php echo $addURL_INFA; ?>?edit&id=<?php echo $row['id'] ?>" name="edit"
@@ -532,60 +600,8 @@
             e.preventDefault();
         }
     });
+   
     var editor = CKEDITOR.replace('description', {
-        height: 200,
-        filebrowserImageBrowseUrl: 'js/editor/ckfinder/ckfinder.html?type=Images',
-        filebrowserImageUploadUrl: 'js/editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-        toolbarGroups: [
-
-            {
-                "name": "document",
-                "groups": ["mode"]
-            },
-            {
-                "name": "clipboard",
-                "groups": ["undo"]
-            },
-            {
-                "name": "basicstyles",
-                "groups": ["basicstyles"]
-            },
-            {
-                "name": "links",
-                "groups": ["links"]
-            },
-            {
-                "name": "paragraph",
-                "groups": ["list"]
-            },
-            {
-                "name": "insert",
-                "groups": ["insert"]
-            },
-            {
-                "name": "insert",
-                "groups": ["insert"]
-            },
-            {
-                "name": "styles",
-                "groups": ["styles"]
-            },
-            {
-                "name": "paragraph",
-                "groups": ["align"]
-            },
-            {
-                "name": "about",
-                "groups": ["about"]
-            },
-            {
-                "name": "colors",
-                "tems": ['TextColor', 'BGColor']
-            },
-        ],
-        removeButtons: 'Iframe,Flash,Strike,Smiley,Subscript,Superscript,Anchor,Specialchar'
-    });
-    var editor = CKEDITOR.replace('detailing', {
         height: 200,
         filebrowserImageBrowseUrl: 'js/editor/ckfinder/ckfinder.html?type=Images',
         filebrowserImageUploadUrl: 'js/editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',

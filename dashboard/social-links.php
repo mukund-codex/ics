@@ -182,26 +182,26 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<div class="row">
+							    <div class="col-sm-6">
+									<label>Facebook  </label>
+									<input  type="text" class="form-control"   name="facebook" placeholder="Facebook" value="<?php if(!empty($data['facebook'])){ echo $data['facebook']; }?>" />
+								</div>
 								
 								<div class="col-sm-6">
-									<label>Facebook <span style="color:red">*</span> </label>
-									<input  type="text" class="form-control" required placeholder="Facebook" name="facebook" value="<?php if(!empty($data['facebook'])){ echo $data['facebook']; }?>" />
-								</div>
-								<div class="col-sm-6">
-									<label>Twitter <span style="color:red">*</span> </label>
-									<input  type="text" class="form-control" required  name="twitter" placeholder="Twitter" value="<?php if(!empty($data['twitter'])){ echo $data['twitter']; }?>" />
+									<label>Twitter </label>
+									<input  type="text" class="form-control"   name="twitter" placeholder="Twitter" value="<?php if(!empty($data['twitter'])){ echo $data['twitter']; }?>" />
 								</div>
 								
 							</div><br>
 							<div class="row">
-								
-								<div class="col-sm-6">
-									<label>Google Plus <span style="color:red">*</span> </label>
-									<input  type="text" class="form-control" required placeholder="Google Plus" name="google" value="<?php if(!empty($data['google'])){ echo $data['google']; }?>" />
+							<div class="col-sm-6">
+									<label>LinkedIn</label>
+									<input  type="text" class="form-control"   name="linkedIn" placeholder="LinkedIn" value="<?php if(!empty($data['linkedIn'])){ echo $data['linkedIn']; }?>" />
 								</div>
+
 								<div class="col-sm-6">
-									<label>Instagram <span style="color:red">*</span> </label>
-									<input  type="text" class="form-control" required  name="instagram" placeholder="Instagram" value="<?php if(!empty($data['instagram'])){ echo $data['instagram']; }?>" />
+									<label>YouTube </label>
+									<input  type="text" class="form-control"   name="youtube" placeholder="Youtube" value="<?php if(!empty($data['youtube'])){ echo $data['youtube']; }?>" />
 								</div>
 								
 							</div>	
@@ -229,13 +229,13 @@
 	<script src="js/crop-image/image-crop-app.js"></script>
 	<script>
         //CKEDITOR.replace( 'text1' );
-        $("form").submit( function(e) {
-            var messageLength = CKEDITOR.instances['editor'].getData().replace(/<[^>]*>/gi, '').length;
-            if( !messageLength ) {
-                alert( 'Please enter a message' );
-                e.preventDefault();
-            }
-        });
+        // $("form").submit( function(e) {
+        //     var messageLength = CKEDITOR.instances['editor'].getData().replace(/<[^>]*>/gi, '').length;
+        //     if( !messageLength ) {
+        //         alert( 'Please enter a message' );
+        //         e.preventDefault();
+        //     }
+        // });
 	$(document).ready(function(){
 		$("#add-a-clone4").on("click", function(){
 			// part 1: get the target

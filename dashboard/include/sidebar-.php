@@ -8,7 +8,7 @@
 		<!-- Main navigation -->
 		<ul class="navigation">
 			
-			
+		<li ><a href="headercontent-master.php"><span>Header Content</span> <i class="icon-diamond"></i></a></li>
 			<li ><a href="banner-master.php"><span>Banner Master</span> <i class="icon-diamond"></i></a></li>
 			<li><a href="category-master.php"><span>Category Master</span> <i class="icon-diamond"></i></a></li>
 			<li><a href="product-master.php"><span>Product Master</span> <i class="icon-diamond"></i></a></li>
@@ -28,6 +28,7 @@
 					<li><a href="listingAndOtherInformation.php"><span>Listing & Other Information</span></a></li>
 				</ul>
 			</li>
+			
 			<li><a href="#" class="expand"><span>About Us</span> <i class="icon-paragraph-justify2"></i></a>
 				<ul>
 					<li><a href="history.php"><span>History</span></a></li>

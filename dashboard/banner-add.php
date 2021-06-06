@@ -204,42 +204,44 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<div class="row">
-								<div class="col-sm-6">
+								<div class="col-sm-12">
 									<label>Image <span style="color:red">*</span></label>
 									<input type="file" class="form-control" name="banner_img"  accept="image/jpg,image/png,image/jpeg" <?php if(!isset($_GET['edit'])) { echo 'required'; } ?> id="" data-image-index="0" />
 									<span class="help-text">
-										Files must be less than <strong>3 MB</strong>.<br>
+										<!-- Files must be less than <strong>3 MB</strong>.<br> -->
 										Allowed file types: <strong>png jpg jpeg</strong>.<br>
-										Images must be exactly <strong>1366x594</strong> pixels.
+										Images must be exactly <strong>929x403</strong> pixels.
 									</span>
 									<br>
 									<?php if(isset($_GET['edit'])) {
 										$file_name = str_replace('', '-', strtolower( pathinfo($data['banner_img'], PATHINFO_FILENAME)));
 										$ext = pathinfo($data['banner_img'], PATHINFO_EXTENSION);
 									?>
-										Previous Image : <br><img src="../img/banner/<?php echo $file_name.'_crop.'.$ext ?>" width="100"  /><br><br>
+										Previous Image : <br><img src="../img/banner/<?php echo $file_name.'_crop.'.$ext ?>" width="400"  /><br><br>
 									<?php
 									} ?>
 								</div>
 								
-								<div class="col-sm-6">
+								
+							</div>
+							<br>
+							<div class="row">	
+							<div class="col-sm-6">
 									<label>Title <span style="color:red">*</span> </label>
 									<textarea col="5" rows="4"  class="form-control" required  name="title" id="" /><?php if(isset($_GET['edit'])){ echo $data['title']; }?></textarea>
 									<!-- <input type="text" class="form-control"  required  name="title" id="" value=""/> -->
 								</div>
-							</div>
-							<br>
-							<div class="row">		
-								<div class="col-sm-8">
+
+								<div class="col-sm-6">
 									<label>Sub Title </label>
 									<textarea col="5" rows="4"  class="form-control" required  name="sub_title" id="" /><?php if(isset($_GET['edit'])){ echo $data['sub_title']; }?></textarea>
 									<!-- <input type="text"  class="form-control" required  name="sub_title" id="" value="<?php if(isset($_GET['edit'])){ echo $data['sub_title']; }?>"/> -->
 								</div>
-							
+<!-- 							
 								<div class="col-sm-4">
 									<label>Display Order <span style="color:red">*</span> </label>
 									<input type="text" min="1" class="form-control" required  name="display_order" id="" value="<?php if(isset($_GET['edit'])){ echo $data['display_order']; }?>"/>
-								</div>
+								</div> -->
 							</div>	
 								
 								
@@ -276,7 +278,7 @@
 	$(document).ready(function() {
 		$('input[type="file"]').change(function(){
 			// loadImageInModal(this);
-			loadImagePreview(this, (1366 / 594));
+			loadImagePreview(this, (929 / 403));
 		});
 	});
 	

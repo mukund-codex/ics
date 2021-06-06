@@ -12,21 +12,35 @@
 		exit();
 	}
 
-    $sqlcategory = "SELECT * FROM `dc_category` ORDER BY category ASC";
-    $resultcategory = $admin->query($sqlcategory);
+    
 
-    // print_r($resultcategory);exit();
-    $getAlltabs = $admin->getAllBoxesTabs();
 
 	//include_once 'csrf.class.php';
 	$csrf = new csrf();
 	$token_id = $csrf->get_token_id();
 	$token_value = $csrf->get_token($token_id);
 
+
+    // $sqlcategory = "SELECT * FROM `dc_category` ORDER BY category ASC";
+    $sqlcategory = "SELECT * FROM `dc_category` Where active = 1";
+    $resultcategory = $admin->query($sqlcategory);
+
+    // print_r($resultcategory);exit();
+    $getAlltabs = $admin->getAllBoxesTabs();
+   
+    $removeSelectedtabs = $admin->removeSelectedTabs();
+    
+   // exit;
+    // !empty($arrCategory[0]) ? 'selected':' ';exit();
+
+
+    $sqlsubcategory = "SELECT * FROM `dc_subtype_courses_list` where active = 1 ";
+    $resultsubcategory = $admin->query($sqlsubcategory);
+
 	if(isset($_POST['register'])){
 		if($csrf->check_valid('post')) {
 			// $allowed_ext = array('image/jpeg','image/jpg');
-			
+			// print_r($_POST);exit;
 			$result = $admin->addDepartmentData($_POST,$_FILES);
 			header("location:".$pageURL."?registersuccess");
 			exit;
@@ -227,33 +241,19 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Select Tabs<span style="color:red">*</span> </label>
-                                    <select class="form-control" required name="tabs" id="tabs">
-                                        <option value="">Select Tabs</option>
-                                        <?php
-										while($row = $admin->fetch($getAlltabs))
-										{
-									?>
 
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['tabs'];?></option>
-                                        <?php
-										}
-									?>
-                                    </select>
-
-                                </div>
                                 <div class="col-sm-6">
                                     <label>Select Category<span style="color:red">*</span> </label>
-                                    <select class="form-control" required name="category" id="category">
-                                        <option value="">Select Tabs</option>
+                                    <select class="form-control" required name="category" id="category" disabled>
+                                        <option value="">Select Category</option>
                                         <?php
                                         //print_r($data);exit();
 										while($row = $admin->fetch($resultcategory))
 										{
                                             
 									?>
-                                        <option value="<?php echo $row['category'];?>" <?php if($row['category'] == $data['category_type']){ echo "selected"; echo "disabled"; }?>><?php echo $row['category'];?>
+                                        <option value="<?php echo $row['coruses_id'];?>" selected>
+                                            <?php echo $row['category'];?>
                                         </option>
                                         <?php
 										}
@@ -263,34 +263,53 @@
 
                                 </div>
 
+                                <!-- Sub Categoery -->
+                                <div class="col-sm-6">
+                                    <label>Select Sub Category<span style="color:red">*</span> </label>
+                                    <select class="form-control" required name="subcategory" id="subcategory" disabled>
+                                        <option value="">Select Sub Category</option>
+                                        <?php
+                                        //print_r($data);exit();
+										while($row = $admin->fetch($resultsubcategory))
+										{
+                                            
+									?>
+                                        <option value="<?php echo strip_tags($row['courses_subtype']) ;?>" selected>
+                                            <?php echo strip_tags($row['courses_subtype']) ;?>
+                                        </option>
+                                        <?php
+										}
+									?>
+                                    </select>
+                                </div>
+
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Image </label>
-                                    <input type="file" class="form-control" name="image"
-                                        <?php if(!isset($_GET['edit'])) { echo 'required'; } ?> id=""
-                                        data-image-index="0" />
-                                    <span class="help-text">
-                                        Files must be less than <strong>3 MB</strong>.<br>
-                                        Allowed file types: <strong>png jpg jpeg</strong>.<br>
-                                        Images must be exactly <strong>1366x594</strong> pixels.
-                                    </span>
-                                    <br>
-                                    <?php if(isset($_GET['edit'])) {
-										$file_name = str_replace('', '-', strtolower( pathinfo($data['image'], PATHINFO_FILENAME)));
-										$ext = pathinfo($data['image'], PATHINFO_EXTENSION);
-									?>
-                                    <img src="../img/Department/<?php echo $file_name.'_crop.'.$ext ?>" width="300"
-                                        height="200" />
-                                    <?php
-									} ?>
+                                <div class="col-sm-12">
+                                    <label>Select Tabs<span style="color:red">*</span> </label>
+                                    <select class="form-control" required name="tabs" id="tabs">
+                                        <option value="">Select Tabs</option>
+                                        <?php
+                                       foreach($removeSelectedtabs as $a)
+                                       {
+                                           //echo $a;
+                                           $sqlDepartName = "SELECT * FROM `dc_boxed_tabs` Where department_id = '$a' ";
+                                           $resultDepartName = $admin->query($sqlDepartName);
+                                           while($row = $admin->fetch($resultDepartName)){
 
-                                </div>
-                                <div class="col-sm-6">
-                                    <label>Image Text </label>
-                                    <textarea col="5" rows="4" class="form-control" name="image_text"
-                                        id="" /><?php if(isset($_GET['edit'])){ echo $data['image_text']; }?></textarea>
+									?>
+
+                                        <option value="<?php echo $row['department_id'];?>">
+                                            <?php echo trim($row['tabs']);?></option>
+                                        <?php
+                                       
+
+                                    }
+                                    //print_r($resultDepartName);
+                                     }
+									?>
+                                    </select>
 
                                 </div>
                             </div>
@@ -308,7 +327,7 @@
                                 <div class="col-sm-6">
                                     <label>Pdf </label>
                                     <input type="file" class="form-control" name="pdf"
-                                        <?php if(!isset($_GET['edit'])) { echo 'required'; } ?> id="" />
+                                        <?php if(!isset($_GET['edit'])) { echo 'required'; } ?> id="" accept=".pdf" />
 
                                     <?php if(isset($_GET['edit'])) {
 										$file_name = str_replace('', '-', strtolower( pathinfo($data['pdf'], PATHINFO_FILENAME)));
@@ -325,7 +344,7 @@
                             </div>
                         </div>
 
-
+                        <input type='hidden' value='<?php echo $arrCategory[0];  ?>' name='category_name'>
                     </div>
 
                 </div>
@@ -343,7 +362,7 @@
                     <?php		} ?>
                 </div>
             </form>
-            
+
 
             <?php 	include "include/footer.php"; ?>
 

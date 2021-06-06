@@ -25,7 +25,7 @@
 
 	if(isset($_POST['register'])){
 		if($csrf->check_valid('post')) {
-			// $allowed_ext = array('image/jpeg','image/jpg');
+			 $allowed_ext = array('image/jpeg','image/jpg','image/png');
 			
 			$result = $admin->addUndergraduateCoursesDataImages($_POST,$_FILES,'UGC');
 			header("location:".$pageURL."?registersuccess");
@@ -36,7 +36,7 @@
 
 	if(isset($_GET['edit'])){
 		$id = $admin->escape_string($admin->strip_all($_GET['id']));
-		$data = $admin->getUniqueUndergraduateCoursesDataImagesById($id);
+		$data = $admin->getUniqueUndergraduateCoursesDataImagesById($id , 'UGC');
      
         
 	}
@@ -47,7 +47,7 @@
 			// $allowed_ext = array('image/jpeg','image/jpg');
 			$id = trim($admin->escape_string($admin->strip_all($_POST['id'])));
             
-			$result = $admin->updateUndergraduateCoursesDataImages($_POST,$_FILES);
+			$result = $admin->updateUndergraduateCoursesDataImages($_POST,$_FILES , "UGC");
 			
 			header("location:".$pageURL."?updatesuccess&edit&id=".$id);
 			exit;
@@ -299,7 +299,7 @@
     $(document).ready(function() {
         $('input[type="file"]').change(function() {
             // loadImageInModal(this);
-            loadImagePreview(this, (1366 / 594));
+            loadImagePreview(this, (800 / 457));
         });
     });
 

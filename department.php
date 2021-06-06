@@ -1,15 +1,66 @@
 <?php
     include('site-config.php');
     $data = $data1 = $func->getAllBoxesTabs(); 
+    $courses = trim($_GET['courses']);
+    $sub_courses = trim($_GET['sub_courses']);
+    // function Slug($string)
+    // {
+    //     return strtolower(trim(preg_replace('~[^0-9a-z]+~i', ' ', html_entity_decode(preg_replace('~&([a-z]{1,2})(?:acute|cedil|circ|grave|lig|orn|ring|slash|th|tilde|uml);~i', '$1', htmlentities($string, ENT_QUOTES, 'UTF-8')), ENT_QUOTES, 'UTF-8')), '-'));
+    // }
+    $filtercourses = $courses;
+    $sqlTitle1 = "SELECT COUNT(coruses_id) as count1 FROM `dc_subtype_courses_list` where coruses_id= '$filtercourses' ";
+    $resultTitle1 = $func->query($sqlTitle1);
+    $rowcount = $func->fetch($resultTitle1);
 
-    $sqlForDes = "SELECT   MAX(id),dept_discp FROM `dc_departments_images` where category= '".$_GET['courses']."' ";
-    $resultOnlyForDescp = $func->query($sqlForDes);
 
-    $sqlForDes = "SELECT  * FROM `dc_departments_images` where category= '".$_GET['courses']."' ";
+   //sub_coruses_carousel_images
+    $sqlForCI = "SELECT  * FROM `dc_sub_coruses_carousel_images` where coruses_id= '$filtercourses'  and courses_subtype_id='$sub_courses'";
+    $resultCI = $func->query($sqlForCI);
+
+    $sqlForCI1 = "SELECT  * FROM `dc_carousel_images` where coruses_id= '$filtercourses'";
+    $resultCI1 = $func->query($sqlForCI1);
+    //end of sub caor    
+
+    //only fro title
+
+    $sqlTitle = "SELECT * FROM `dc_subtype_courses_list` where coruses_id= '$filtercourses'  and courses_subtype_id='$sub_courses'";
+    $resultTitle = $func->query($sqlTitle);
+
+    $sqlTitle3 = "SELECT * FROM `dc_undergraduate_images` where coruses_id= '$filtercourses' ";
+    $resultTitle3 = $func->query($sqlTitle3);
+    //
     
-    $resultOnlyForImages = $func->query($sqlForDes);
+    //description
+    $sqlForTitleDes = "SELECT  * FROM `dc_title_descrption` where coruses_id= '$filtercourses' ";
+    $resultTitleDes = $func->query($sqlForTitleDes);
+
+    $sqlForTitleDes1 = "SELECT  * FROM `dc_sub_coursestitle_descrption` where coruses_id= '$filtercourses' and courses_subtype_id='$sub_courses' ";
+    $resultTitleDes1 = $func->query($sqlForTitleDes1);
+ 
+    //end of description
+
+   
+
+    $arrDepartmentId = [];
+    $arrDepartmentSubId =[];
+    //tabs
+    $sqlFordetail = "SELECT * FROM `dc_boxed_tabs` as bt , `dc_departments` as dt where bt.`department_id` = dt.`department_id` AND dt.category_type= '$filtercourses' ";
+    $resultsqlFordetail = $func->query($sqlFordetail);
+
+
+
+    $sqlFordetail1 = "SELECT * FROM `dc_boxed_tabs` as bt , `dc_departments` as dt where bt.`department_id` = dt.`department_id` AND dt.category_type= '$filtercourses' AND dt.courses_subtype_id='$sub_courses' ";
+    $resultsqlFordetail1 = $func->query($sqlFordetail1);
+    // echo $sqlFordetail1;exit;
+
+
+
+     //ends of tabs
+    
+   
     
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +77,7 @@
     <link rel="stylesheet" href="css/bundle.css">
     <link rel="stylesheet" href="css/hody-icons.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="searchengine.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Quattrocento:400,700" rel="stylesheet" type="text/css">
@@ -204,7 +256,28 @@
 
     <section style="padding-top:50px;padding-bottom:20px;">
         <div class="title center" style="padding-bottom:50px;">
-            <h2> Department of Information Technology </h2>
+        <?php
+        if($rowcount['count1'] > 0 ){
+
+       
+        while($row = $func->fetch($resultTitle)){
+        //echo $row['description'];
+        
+        ?>
+            <h2><?php  echo $row['courses_subtype']; ?></h2>
+        <?php  
+        } 
+    }else{
+        while($row2 = $func->fetch($resultTitle3)){
+            //echo $row['description'];
+            
+            ?>
+                <h2><?php  echo $row2['title']; ?></h2>
+            <?php  
+            } 
+    }
+
+        ?>
         </div>
         <br>
         <div class="container">
@@ -213,47 +286,76 @@
                     <div class="col-md-6">
                         <div class="flexslider nav-inside" id="product-slider">
                             <ul class="slides">
+                              
 
-                                <?php  
+
+                            <?php
+                                    if($rowcount['count1'] > 0 ){
+
                                 
-                                while($row = $func->fetch($resultOnlyForImages)){
-                                    $file_name = str_replace('', '-', strtolower( pathinfo($row['image'], PATHINFO_FILENAME)));
-                                    $ext = pathinfo($row['image'], PATHINFO_EXTENSION);  
-                                
-                                ?>
-
-                                <li data-thumb="img/Department/Arts/<?php echo $file_name.'_crop.'.$ext ?>">
-                                    <img src="img/Department/Arts/<?php echo $file_name.'_crop.'.$ext ?>" alt="">
-                                    <img src="img/Department/Arts/<?php echo $file_name.'_crop.'.$ext ?>"
-                                alt="No Images available">
-                                </li>
-
-                                <?php
+                                    while($row = $func->fetch($resultCI)){
+                                        $file_name = str_replace('', '-', strtolower( pathinfo($row['image'], PATHINFO_FILENAME)));
+                                        $ext = pathinfo($row['image'], PATHINFO_EXTENSION); 
+                                       ?>
+                                    
+                                    ?>
+                                        <li data-thumb="./img/Department/subcoursestype/<?php echo $file_name.'_crop.'.$ext ?>">
+                                            <img src="./img/Department/subcoursestype/<?php echo $file_name.'_crop.'.$ext ?>"
+                                                alt="">
+                                        </li>
+                                    <?php  
+                                    } 
+                                }else{
+                                    while($row2 = $func->fetch($resultCI1)){
+                                        $file_name = str_replace('', '-', strtolower( pathinfo($row2['image'], PATHINFO_FILENAME)));
+                                        $ext = pathinfo($row2['image'], PATHINFO_EXTENSION); 
+                                        
+                                        ?>
+                                             <li data-thumb="./img/Department/<?php echo $file_name.'_crop.'.$ext ?>">
+                                            <img src="./img/Department/<?php echo $file_name.'_crop.'.$ext ?>"
+                                                alt="">
+                                        </li>
+                                        <?php  
+                                        } 
                                 }
-                                ?>
-                               
+
+                                    ?>
+
+                            
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-5 col-md-offset-1">
-
-                        <div class="title m-0">
-                            <h2 class="product_title entry-title"><?php echo $_GET['courses'];?></h2>
-                        </div>
-
+                        <!--<div class="title m-0">-->
+                        <!--    <h2 class="product_title entry-title">IT</h2>-->
+                        <!--</div>-->
                         <div class="single-product-price">
 
                         </div>
                         <div class="single-product-desc">
                             <h5>Description</h5>
+                                <?php
+                                        if($rowcount['count1'] <= 0 ){
 
-                            <?php
-                                  while($row = $func->fetch($resultOnlyForDescp)){
-                            ?>
-                            <p><?php echo $row['dept_discp'];?></p>
-                            <?php
-                                }
-                             ?>
+                                    
+                                        while($row = $func->fetch($resultTitleDes)){
+                                        //echo $row['description'];
+                                        
+                                        ?>
+                                            <h2><?php  echo $row['description']; ?></h2>
+                                        <?php  
+                                        } 
+                                    }else{
+                                        while($row2 = $func->fetch($resultTitleDes1)){
+                                            //echo $row['description'];
+                                            
+                                            ?>
+                                                <h2><?php  echo $row2['description']; ?></h2>
+                                            <?php  
+                                            } 
+                                    }
+                                ?>
+
                         </div>
 
                     </div>
@@ -271,40 +373,172 @@
                     </div>
                     <div class="dylan-tabs mt-50">
                         <ul class="nav nav-tabs boxed-tabs center-tabs cols-12">
-                        <?php 
-                         while($row = $func->fetch($data))
-                         { 
-                        ?>
-                            <li class='<?php echo ($row['id'] == "1") ? "active" : " ";?>'><a
-                                    href="#boxed-tab-<?php echo $row['id'];?>" data-toggle="tab"
-                                    aria-expanded="false"><span><?php echo $row['tabs'];?></span></a>
+                        <?php
+                            if($rowcount['count1'] <= 0 ){
 
-                            </li>
-                            <?php
-                         }
-                           ?>
-                        </ul>
-                        <div class="tab-content text-center">
-                            <?php 
-                                while($row = $func->fetch($data1)) { //echo "Here";exit; print_r($row);exit;  
-                                    $id = $row['id']; 
 
-                                    echo $id;
-                            ?>
-                            <div class="tab-pane fade active in" id="boxed-tab-<?php echo $id; ?>">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt illum nemo tempore
-                                praesentium incidunt
-                                quia blanditiis ea aliquam error ipsum excepturi aperiam vitae necessitatibus
-                                recusandae, rerum modi ab
-                                mollitia iure?</p>
-                            </div>
+                                    while($row = $func->fetch($resultsqlFordetail)){
+                                    //echo $row['description'];
+                                    array_push($arrDepartmentId,$row['department_id']);
+                                    ?>
+                                    <li class='<?php echo ($row['department_id'] == "1") ? "active" : " ";?>'>
+                                    <a href="#boxed-tab-<?php echo $row['department_id'];?>" data-toggle="tab"
+                                        aria-expanded="false"><span><?php echo $row['tabs'];?></span></a>
+
+                                    </li>
+                                    <?php  
+                                    } 
+                            }else{
+                                while($row2 = $func->fetch($resultsqlFordetail1)){
+                                //echo $row['description'];
+                                array_push($arrDepartmentSubId,$row2['department_id']);
+                                ?>
                             
-                            <?php } ?>
+                            <li class='<?php echo ($row2['department_id'] == "1") ? "active" : " ";?>'>
+                                    <a href="#boxed-tab-<?php echo $row2['department_id'];?>" data-toggle="tab"
+                                        aria-expanded="false"><span><?php echo $row2['tabs'];?></span></a>
+
+                                    </li>  
+                                <?php  
+                                } 
+                            }
+                            ?>
+                        </ul>
+                    <!-- fffff -->
+
+                            <!-- //tabs -->
+                        <div class="tab-content text-center">
+                        <?php
+                        if($rowcount['count1'] <= 0 ){
+
+
+                        for ($x = 0; $x <= 9; $x++) {
+                            // $a = $arrDepartmentId[$x];
+                        $sqlForTabInfo = "SELECT  * FROM `dc_departments` where category_type = '$filtercourses' AND department_id= ".$x." ";
+                        $resultTabInfo = $func->query($sqlForTabInfo);
+                        
+                        while($row = $func->fetch($resultTabInfo)) {
+                        ?>
+        
+                    <div class="tab-pane fade" id="boxed-tab-<?php echo $row['department_id']?>">
+                                                    <!-- for text only -->
+                        <p><?php echo $row['text']; ?></p>
+
+                        <!-- End of for text only -->
+                        <!-- pdf -->
+                        <?php if($row['pdf']) {
+                                $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                                $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION);
+                        ?>
+                        <embed src="./img/pdf/<?php echo $file_name.'.'.$ext ?>" width="400px" height="330px" />
+                        <?php
+                        } ?>
+                        <!-- end of pdf -->
+
+                        <!-- images -->
+
+                        <div class="row">
+                            <?php
+                        $sqlForCI = "SELECT  * FROM `dc_departments_images` where category = '$filtercourses' AND tabs= ".$x." ";
+                        $resultCI = $func->query($sqlForCI);
+                        while($row = $func->fetch($resultCI)){
+                            $file_name = str_replace('', '-', strtolower( pathinfo($row['image'], PATHINFO_FILENAME)));
+                            $ext = pathinfo($row['image'], PATHINFO_EXTENSION);
+                    
+                    ?>
+
+                            <div class="col-md-4">
+                                <img src="./img/Department/<?php echo $file_name.'_crop.'.$ext  ?>">
+                                <div class="title center">
+                                    <!-- <h4>Laboratory</h4> -->
+                                </div>
+                            </div>
+                            <?php 
+                        
+                        }
+                        ?>
+                        </div>
+
+                        <!-- end of images -->
+
+                    </div>
+        <?php  
+        } 
+    }
+}
+else{
+    for ($x = 0; $x <= 9; $x++) {
+        // $a = $arrDepartmentId[$x];
+        $sqlForTabInfo = "SELECT  * FROM `dc_departments` where category_type = '$filtercourses' AND courses_subtype_id='$sub_courses' AND department_id= ".$x." ";
+        $resultTabInfo = $func->query($sqlForTabInfo);
+        
+        while($row = $func->fetch($resultTabInfo)) {
+        ?>
+     <div class="tab-pane fade" id="boxed-tab-<?php echo $row['department_id']?>">
+                                        <!-- for text only -->
+            <p><?php echo $row['text']; ?></p>
+
+            <!-- End of for text only -->
+            <!-- pdf -->
+            <?php if($row['pdf']) {
+                    $file_name = str_replace('', '-', strtolower( pathinfo($row['pdf'], PATHINFO_FILENAME)));
+                    $ext = pathinfo($row['pdf'], PATHINFO_EXTENSION);
+            ?>
+            <embed src="./img/pdf/<?php echo $file_name.'.'.$ext ?>" width="400px" height="330px" />
+            <?php
+            } ?>
+            <!-- end of pdf -->
+
+            <!-- images -->
+
+            <div class="row">
+                <?php
+            $sqlForCI = "SELECT  * FROM `dc_departments_images` where category = '$filtercourses' AND tabs= ".$x." ";
+            $resultCI = $func->query($sqlForCI);
+            while($row = $func->fetch($resultCI)){
+                $file_name = str_replace('', '-', strtolower( pathinfo($row['image'], PATHINFO_FILENAME)));
+                $ext = pathinfo($row['image'], PATHINFO_EXTENSION);
+        
+        ?>
+
+                <div class="col-md-4">
+                    <img src="./img/Department/<?php echo $file_name.'_crop.'.$ext  ?>">
+                    <div class="title center">
+                        <!-- <h4>Laboratory</h4> -->
+                    </div>
+                </div>
+                <?php 
+            
+            }
+            ?>
+            </div>
+
+            <!-- end of images -->
+        </div>
+   
+    <?php  
+      } 
+    }
+}
+?>
+
+
+
+
+                            <!-- <div class="tab-pane fade" id="boxed-tab-2">
+
+                            </div> -->
+
+
+
 
                         </div>
+
+
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <?php include('common/footer.php') ?>
@@ -317,13 +551,15 @@
                         <!-- Search Form-->
                         <form class="searchform">
                             <div class="input-group">
-                                <input class="form-control" type="search" data-required="required" name="s"
-                                    placeholder="Search..." value=""><span class="input-group-btn"><button
+                                <input class="form-control" type="search" data-required="required" name="search"
+                                    placeholder="Search..." value="" id="search" ><span class="input-group-btn"><button
                                         class="btn btn-color" type="submit"><span><i class="hc-search"></i></span>
                                     </button>
                                 </span>
                             </div>
                         </form>
+
+                        <div id="citylist"></div>
                         <!-- End Search Form-->
                     </div>
                 </div>
@@ -333,6 +569,7 @@
             <i class="hc-close"></i>
         </a>
     </div>
+
     <div class="go-top">
         <a href="#top">
             <i class="hc-angle-up"></i>
@@ -344,6 +581,7 @@
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNGOsBBZo9vf0Tw4w6aJiilSTFVfQ5GPI"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="sreachengine.js"></script>
 </body>
 
 
